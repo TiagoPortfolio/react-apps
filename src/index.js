@@ -165,7 +165,10 @@ class App extends React.Component {
       username: '',
       email: '',
       intro: '',
-      value: 'coconut'
+      image: {
+        id: 1,
+        url: "https://video-react.js.org/assets/logo.png"
+      }
     };
   }
 
@@ -176,6 +179,13 @@ class App extends React.Component {
     });
   }
 
+  handleImageChange(image) {
+    // const value = e.target.value;
+    // this.setState({
+    //   [e.target.name]: value
+    // });
+  }
+
   render() {
     return (
       <div className="app">
@@ -184,7 +194,9 @@ class App extends React.Component {
         </div>
         <div className="appContent">
           <Profile globalState={this.state}/>
-          <Form globalState={this.state} formHandler={this.handleChange.bind(this)}/>
+          <Form globalState={this.state}
+                formHandler={this.handleChange.bind(this)}
+                onImageChange={(i) => this.handleImageChange(i)}/>
         </div>
       </div>
     );

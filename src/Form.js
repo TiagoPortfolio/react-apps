@@ -1,5 +1,6 @@
 import React from 'react';
 import './form.css';
+import ImageSelector from './ImageSelector';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -108,12 +109,7 @@ export default class Form extends React.Component {
             <label>
               Background:
             </label>
-            <select value={this.props.value} onChange={this.props.formHandler}>
-              <option style={{backgroundImage:"url(https://video-react.js.org/assets/logo.png)"}} value="grapefruit">Grapefruit</option>
-              <option style={{backgroundImage:"url(https://video-react.js.org/assets/logo.png)"}} value="lime">Lime</option>
-              <option style={{backgroundImage:"url(https://video-react.js.org/assets/logo.png)"}} value="coconut">Coconut</option>
-              <option style={{backgroundImage:"url(https://video-react.js.org/assets/logo.png)"}} value="mango">Mango</option>
-            </select>
+            <ImageSelector onImageChange={this.props.onImageChange}/>
           </div>
           <input type="submit" ref="submitButton" className={this.state.submitClass} value="Submit Profile" />
         </form>
