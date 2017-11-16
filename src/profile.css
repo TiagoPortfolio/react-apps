@@ -1,0 +1,25 @@
+div.profilePreview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+div.profilePreview div {
+	margin: 5px 0px;
+}
+
+div.profilePreview .avatar {
+	/* width: 80px;
+	height: 80px;
+	border-radius: 50px;
+	background-color: blue; */
+}
+
+div.profilePreview .username {
+	font-size: 1em;
+}
+
+div.profilePreview .email {
+	font-size: 0.8em;
+}

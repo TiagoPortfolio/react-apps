@@ -1,0 +1,128 @@
+body {
+  font-size: 14px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 20px;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+div.app .appTitle{
+  text-align: center;
+}
+
+div.appContent {
+  display: flex;
+  justify-content: space-around;
+}
+
+div.appContent .profilePreview,
+div.appContent .profileForm {
+  min-width: 50%;
+}
+
+
+div.profileForm form * {
+  display: flex;
+}
+
+input[name="username"],
+input[name="email"],
+input[name="password"] {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 2px solid #d1d1d1;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #252525;
+  background-color: #fff;
+}
+
+textarea[name="intro"] {
+  resize: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #d1d1d1;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #252525;
+  background-color: #fff;
+}
+
+div.profileForm form .error {
+  background-color: #e92b2b36;
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+  padding: 5px;
+  margin: 0px 20%;
+  border-radius: 0px 0px 20px 20px;
+  justify-content: center;
+}
+
+div.profileForm form div {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0px;
+}
+
+div.profileForm form input,
+div.profileForm form textarea {
+  margin-top: 5px;
+}
+
+#username,
+#email,
+#intro,
+#background {
+  margin-bottom: 5px;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 600;
+}
+
+input:required {
+  box-shadow:none;
+}
+
+input[type="submit"].submit-error {
+  animation: circle-fade-error 1s linear;
+}
+
+input[type="submit"].submit-success {
+  animation: circle-fade-success 1s linear;
+}
+
+
+@keyframes circle-fade-error {
+  0%   {box-shadow: 0px 0px 0px 0px red;}
+  10%  {box-shadow: 1px 1px 1px 1px red;}
+  20%  {box-shadow: 1px -1px 1px 1px red;}
+  30%  {box-shadow: -1px -1px 1px 1px red;}
+  40%  {box-shadow: -1px 1px 1px 1px red;}
+  50%  {box-shadow: 1px 1px 1px 1px red;}
+  80%  {box-shadow: 0px 0px 0px 0px red;}
+  90%  {box-shadow: 0px 0px 5px 2px red;}
+  100% {box-shadow: 0px 0px 0px 0px red;}
+}
+
+@keyframes circle-fade-success {
+  0%   {box-shadow: 0px 0px 0px 0px green;}
+  10%  {box-shadow: 1px 1px 1px 1px green;}
+  20%  {box-shadow: 1px -1px 1px 1px green;}
+  30%  {box-shadow: -1px -1px 1px 1px green;}
+  40%  {box-shadow: -1px 1px 1px 1px green;}
+  50%  {box-shadow: 1px 1px 1px 1px green;}
+  80%  {box-shadow: 0px 0px 0px 0px green;}
+  90%  {box-shadow: 0px 0px 5px 2px green;}
+  100% {box-shadow: 0px 0px 0px 0px green;}
+}
