@@ -4,15 +4,27 @@ import React from 'react';
 const images = [
   {
     id: 1,
-    url: "https://video-react.js.org/assets/logo.png"
+    url: "grey_background.jpg"
   },
   {
     id: 2,
-    url: "https://video-react.js.org/assets/logo.png"
+    url: "grey_background.jpg"
   },
   {
     id: 3,
-    url: "https://video-react.js.org/assets/logo.png"
+    url: "grey_background.jpg"
+  },
+  {
+    id: 4,
+    url: "grey_background.jpg"
+  },
+  {
+    id: 5,
+    url: "grey_background.jpg"
+  },
+  {
+    id: 6,
+    url: "grey_background.jpg"
   }
 ];
 
@@ -22,7 +34,7 @@ export default class ImageSelector extends React.Component {
     this.state = {
       imageSelected: {
         id: 1,
-        url: "https://video-react.js.org/assets/logo.png"
+        url: "grey_background.jpg"
       },
       selectorActive: false,
     };
@@ -48,9 +60,14 @@ export default class ImageSelector extends React.Component {
 
     return (
       <div className="imageSelector" onClick={this.handleImageSelector.bind(this)}>
-        <img src={this.state.imageSelected.url} />
+        {!this.state.selectorActive &&
+          <div>
+            <img className="active" src={this.state.imageSelected.url} />
+            <span className="arrow-down"></span>
+          </div>
+        }
         {this.state.selectorActive &&
-          this.getImages(images)
+            this.getImages(images)
         }
       </div>
     );

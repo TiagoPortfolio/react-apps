@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 
 // function Square(props) {
 //   return (
@@ -167,7 +167,7 @@ class App extends React.Component {
       intro: '',
       image: {
         id: 1,
-        url: "https://video-react.js.org/assets/logo.png"
+        url: "img1.jpg"
       }
     };
   }
