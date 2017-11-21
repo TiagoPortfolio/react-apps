@@ -1,25 +1,88 @@
 div.profilePreview {
+	border-radius: 10px;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	z-index: -2;
+	color: white;
 }
 
-div.profilePreview div {
-	margin: 5px 0px;
+div.appContent .profilePreview .backgroundOverlay {
+	border-radius: 10px;
+	position: absolute;
+	background: #000;
+	opacity: 0.5;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: -1;
 }
 
 div.profilePreview .avatar {
-	/* width: 80px;
-	height: 80px;
-	border-radius: 50px;
-	background-color: blue; */
+	/* display: table; */
+	margin: 10px 0px;
+}
+
+div.profilePreview .avatar img {
+	/* display: table; */
+	overflow: hidden;
 }
 
 div.profilePreview .username {
-	font-size: 1em;
+	margin: 5px 0px;
+	font-size: 1.4em;
 }
 
 div.profilePreview .email {
-	font-size: 0.8em;
+	font-size: 1em;
+}
+
+div.profilePreview .intro {
+	margin: 20px 0px;
+	font-size: 1.2em;
+}
+
+div.profilePreview .avatar .circle {
+	border-radius: 50%;
+	display: flex;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+}
+
+div.profilePreview .avatar .losange {
+	transform: rotate(45deg) translateY(10px);
+}
+
+div.profilePreview .avatar .losange, .losange div {
+    transform-origin: 20% 62%;
+    overflow: hidden;
+    width: 87px;
+    height: 86px;
+}
+
+.losange .los1 {
+    width: 122px;
+    height: 122px;
+    transform: rotate(-45deg) translateY(5px);
+}
+
+div.profilePreview .avatar .diamond {
+    transform: rotate(45deg) translateY(-25px) translateX(-25px);
+}
+
+div.profilePreview .avatar .diamond .dia {
+    width: 122px;
+    height: 122px;
+    transform: rotate(-45deg);
+}
+
+div.profilePreview .avatar .diamond {
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    width: 105px;
+    height: 105px;
 }

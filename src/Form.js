@@ -14,19 +14,34 @@ export default class Form extends React.Component {
         valid: true,
         message: ''
       },
-      intro: '',
       submitClass: ''
     };
+
+    this.animationDone = this.animationDone.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.validateUsername = this.validateUsername.bind(this);
+    this.validateEmail = this.validateEmail.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.username.valid !== nextState.username.valid ||
+        this.state.email.valid !== nextState.email.valid ||
+        this.state.submitClass !== this.state.submitClass ||
+        this.props.globalState.avatarShape !== nextProps.globalState.avatarShape
+    ) {
+      return true;
+    }
+    return false;
   }
 
   componentDidMount () {
       const submitButton = this.refs.submitButton;
-      submitButton.addEventListener('animationend', this.animationDone.bind(this));
+      submitButton.addEventListener('animationend', this.animationDone);
   }
 
   componentWillUnmount () {
     const submitButton = this.refs.submitButton;
-    submitButton.removeEventListener('animationend', this.animationDone.bind(this) );
+    submitButton.removeEventListener('animationend', this.animationDone);
   }
 
   animationDone () {
@@ -80,12 +95,12 @@ export default class Form extends React.Component {
         <div className="formTitle">
           <h2>Profile Data</h2>
         </div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleSubmit}>
           <div id="username">
             <label>
               Username
             </label>
-            <input type="text" name="username" required placeholder="Username" onChange={this.props.formHandler} onBlur={this.validateUsername.bind(this)}/>
+            <input type="text" name="username" required placeholder="Username" onChange={this.props.formHandler} onBlur={this.validateUsername}/>
             {!this.state.username.valid &&
               <span className="error">{this.state.username.message}</span>
             }
@@ -94,7 +109,7 @@ export default class Form extends React.Component {
             <label>
               Email
             </label>
-            <input type="email" name="email" required placeholder="Email" onChange={this.props.formHandler} onBlur={this.validateEmail.bind(this)}/>
+            <input type="email" name="email" required placeholder="Email" onChange={this.props.formHandler} onBlur={this.validateEmail}/>
             {!this.state.email.valid &&
               <span className="error">{this.state.email.message}</span>
             }
@@ -109,7 +124,17 @@ export default class Form extends React.Component {
             <label>
               Background:
             </label>
-            <ImageSelector onImageChange={this.props.onImageChange}/>
+            <ImageSelector imageSelected={this.props.globalState.image} onImageChange={this.props.onImageChange}/>
+          </div>
+          <div id="shape">
+            <label>
+              Avatar Shape:
+            </label>
+            <select value={this.props.globalState.avatarShape} name="shape" onChange={this.props.onAvatarShapeChange}>
+              <option value="circle">Circle</option>
+              <option value="losange">Losange</option>
+              <option value="diamond">Diamond</option>
+            </select>
           </div>
           <input type="submit" ref="submitButton" className={this.state.submitClass} value="Submit Profile" />
         </form>

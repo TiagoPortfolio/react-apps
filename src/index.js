@@ -167,9 +167,13 @@ class App extends React.Component {
       intro: '',
       image: {
         id: 1,
-        url: "img1.jpg"
-      }
+        url: "grey_background.jpg"
+      },
+      avatarShape: 'circle'
     };
+    
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAvatarShapeChange = this.handleAvatarShapeChange.bind(this);
   }
 
   handleChange(e) {
@@ -180,10 +184,15 @@ class App extends React.Component {
   }
 
   handleImageChange(image) {
-    // const value = e.target.value;
-    // this.setState({
-    //   [e.target.name]: value
-    // });
+    this.setState({
+      image
+    });
+  }
+
+  handleAvatarShapeChange(e) {
+    this.setState({
+      avatarShape: e.target.value
+    });
   }
 
   render() {
@@ -195,8 +204,9 @@ class App extends React.Component {
         <div className="appContent">
           <Profile globalState={this.state}/>
           <Form globalState={this.state}
-                formHandler={this.handleChange.bind(this)}
-                onImageChange={(i) => this.handleImageChange(i)}/>
+                formHandler={this.handleChange}
+                onImageChange={(i) => this.handleImageChange(i)}
+                onAvatarShapeChange={this.handleAvatarShapeChange}/>
         </div>
       </div>
     );

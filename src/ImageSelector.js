@@ -8,7 +8,7 @@ const images = [
   },
   {
     id: 2,
-    url: "grey_background.jpg"
+    url: "img1.jpg"
   },
   {
     id: 3,
@@ -32,38 +32,45 @@ export default class ImageSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageSelected: {
-        id: 1,
-        url: "grey_background.jpg"
-      },
+      imageSelected: this.props.imageSelected,
       selectorActive: false,
     };
+
+    this.openImageSelector = this.openImageSelector.bind(this);
+    this.handleImageSelector = this.handleImageSelector.bind(this);
   }
 
   getImages(images) {
     const selectElement = images.map((image) => {
-      let imageActive = image.id == this.state.imageSelected.id ? 'active' : '';
+      let imageActive = image.id === this.state.imageSelected.id ? 'active' : '';
       return (
-        <img key={image.id} src={image.url} className={imageActive} onClick={() => this.props.onImageChange(image)}/>
+        <img key={image.id} src={image.url} className={imageActive} onClick={() => this.handleImageSelector(image)}/>
       );
     });
     return selectElement;
   }
 
-  handleImageSelector() {
+  openImageSelector() {
     this.setState({
       selectorActive: !this.state.selectorActive,
     });
   }
 
+  handleImageSelector(image) {
+    this.setState({
+      imageSelected: image,
+    });
+    this.props.onImageChange(image);
+  }
+
   render() {
 
     return (
-      <div className="imageSelector" onClick={this.handleImageSelector.bind(this)}>
+      <div className="imageSelector">
         {!this.state.selectorActive &&
           <div>
             <img className="active" src={this.state.imageSelected.url} />
-            <span className="arrow-down"></span>
+            <span className="arrow-down" onClick={this.openImageSelector}></span>
           </div>
         }
         {this.state.selectorActive &&
