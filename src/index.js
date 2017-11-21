@@ -154,7 +154,7 @@ import ReactDOM from 'react-dom';
 // }
 
 // FORM ========================================
-// import './index.css';
+import './index.css';
 import Profile from './Profile';
 import Form from './Form';
 
@@ -202,11 +202,15 @@ class App extends React.Component {
           <h1>Create Your Profile</h1>
         </div>
         <div className="appContent">
-          <Profile globalState={this.state}/>
-          <Form globalState={this.state}
-                formHandler={this.handleChange}
-                onImageChange={(i) => this.handleImageChange(i)}
-                onAvatarShapeChange={this.handleAvatarShapeChange}/>
+          <div className="appWrapper">
+            <Profile globalState={this.state}/>
+          </div>
+          <div className="appWrapper">
+            <Form globalState={this.state}
+                  formHandler={this.handleChange}
+                  onImageChange={(i) => this.handleImageChange(i)}
+                  onAvatarShapeChange={this.handleAvatarShapeChange}/>
+          </div>
         </div>
       </div>
     );

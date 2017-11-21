@@ -26,7 +26,7 @@ export default class Form extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state.username.valid !== nextState.username.valid ||
         this.state.email.valid !== nextState.email.valid ||
-        this.state.submitClass !== this.state.submitClass ||
+        this.state.submitClass !== nextState.submitClass ||
         this.props.globalState.avatarShape !== nextProps.globalState.avatarShape
     ) {
       return true;
@@ -134,6 +134,8 @@ export default class Form extends React.Component {
               <option value="circle">Circle</option>
               <option value="losange">Losange</option>
               <option value="diamond">Diamond</option>
+              <option value="hexagon">Hexagon</option>
+              <option value="octogon">Octogon</option>
             </select>
           </div>
           <input type="submit" ref="submitButton" className={this.state.submitClass} value="Submit Profile" />

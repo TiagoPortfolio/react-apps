@@ -41,6 +41,30 @@ export default class Profile extends React.Component {
           </div>
         );
         break;
+      case 'hexagon':
+        avatarShape = (
+          <div className="avatar">
+            <div className="hexa">
+              <div className="hex1">
+                <div className="hex2">
+                  <img src="avatar.jpeg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+        break;
+      case 'octogon':
+        avatarShape = (
+          <div className="avatar">
+            <div className="octo">
+              <div className="octo1">
+                <img src="avatar.jpeg" />
+              </div>
+            </div>
+          </div>
+        );
+        break;
       default:
         avatarShape = (
           <div className="avatar">
