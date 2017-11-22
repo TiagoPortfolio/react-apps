@@ -14,6 +14,7 @@ export default class Form extends React.Component {
         valid: true,
         message: ''
       },
+      hobbies: {},
       submitClass: ''
     };
 
@@ -137,6 +138,12 @@ export default class Form extends React.Component {
               <option value="hexagon">Hexagon</option>
               <option value="octogon">Octogon</option>
             </select>
+          </div>
+          <div id="hobbies">
+            <label>
+              Hobbies
+            </label>
+            
           </div>
           <input type="submit" ref="submitButton" className={this.state.submitClass} value="Submit Profile" />
         </form>

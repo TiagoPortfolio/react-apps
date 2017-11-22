@@ -1,5 +1,5 @@
 import React from 'react';
-// import './imageSelector.css';
+import {Motion, spring} from 'react-motion';
 
 const images = [
   {
@@ -66,17 +66,30 @@ export default class ImageSelector extends React.Component {
   render() {
 
     return (
-      <div className="imageSelector">
-        {!this.state.selectorActive &&
-          <div>
-            <img className="active" src={this.state.imageSelected.url} />
-            <span className="arrow-down" onClick={this.openImageSelector}></span>
+      <Motion style={{x: spring(this.state.selectorActive ? 1 : 0)}}>
+        {({x}) =>
+          // children is a callback which should accept the current value of
+          // `style`
+          <div className="imageSelector" style={{
+            maxWidth: x === 0 ? 140 : 1000,
+            maxHeight: x === 0 ? 100 : 1000
+          }}>
+            {!this.state.selectorActive &&
+              <div className="activeImage">
+                <img className="active" src={this.state.imageSelected.url} onClick={this.openImageSelector} />
+                <span className="arrow-down" onClick={this.openImageSelector}></span>
+              </div>
+            }
+            <div className="availableImages" style={{
+              opacity: `${x}`,
+            }}>
+              {this.state.selectorActive &&
+                this.getImages(images)
+              }
+            </div>
           </div>
         }
-        {this.state.selectorActive &&
-            this.getImages(images)
-        }
-      </div>
+      </Motion>
     );
   }
 }

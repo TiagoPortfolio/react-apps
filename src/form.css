@@ -155,9 +155,10 @@ div.profileForm .imageSelector {
   margin: 5px 0px;
   justify-content: space-evenly;
   box-shadow: 1px 1px 8px 0px #b3b3b3;
+  transition: max-width 0.5s, max-height 1s;
 }
 
-div.profileForm .imageSelector div {
+div.profileForm .imageSelector .activeImage {
   display: flex;
   flex-direction: row;
   padding: 0px 5px;
@@ -186,4 +187,9 @@ div.profileForm .imageSelector img:hover {
 
 div.profileForm .imageSelector img.active {
   opacity: 1;
+}
+
+
+div.profileForm .imageSelector .availableImages {
+  transition: opacity 0.25s;
 }
