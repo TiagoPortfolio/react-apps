@@ -79,6 +79,15 @@ export default class Profile extends React.Component {
     return avatarShape;
   }
   
+  getHobbies() {
+    return this.props.globalState.hobbies.map(hobby => {
+      return (
+        <div className="hobby">
+          {hobby.name}
+        </div>
+      );
+    });
+  }
   render() {
     const backgroundStyle = {
       background: "url(" + this.props.globalState.image.url + ") center no-repeat",
@@ -92,6 +101,9 @@ export default class Profile extends React.Component {
         <div className="username">{this.props.globalState.username}</div>
         <div className="email"><em>{this.props.globalState.email}</em></div>
         <div className="intro">{this.props.globalState.intro}</div>
+        <div className="hobbies">
+          {this.props.globalState.hobbies}
+        </div>
         <div className="background"></div>
       </div>
     );

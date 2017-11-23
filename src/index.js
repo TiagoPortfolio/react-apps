@@ -167,13 +167,15 @@ class App extends React.Component {
       intro: '',
       image: {
         id: 1,
-        url: "grey_background.jpg"
+        url: "img1.jpg"
       },
-      avatarShape: 'circle'
+      avatarShape: 'circle',
+      hobbies: []
     };
     
     this.handleChange = this.handleChange.bind(this);
     this.handleAvatarShapeChange = this.handleAvatarShapeChange.bind(this);
+    this.onHobbyAdd = this.onHobbyAdd.bind(this);
   }
 
   handleChange(e) {
@@ -195,6 +197,14 @@ class App extends React.Component {
     });
   }
 
+  onHobbyAdd(hobby) {
+    const hobbies = this.state.hobbies;
+    hobbies.push(hobby);
+    this.setState({
+      hobbies
+    });
+  }
+
   render() {
     return (
       <div className="app">
@@ -209,7 +219,9 @@ class App extends React.Component {
             <Form globalState={this.state}
                   formHandler={this.handleChange}
                   onImageChange={(i) => this.handleImageChange(i)}
-                  onAvatarShapeChange={this.handleAvatarShapeChange}/>
+                  onAvatarShapeChange={this.handleAvatarShapeChange}
+                  onHobbyAdd={(h) => this.onHobbyAdd(h)}
+            />
           </div>
         </div>
       </div>

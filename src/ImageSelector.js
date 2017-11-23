@@ -4,11 +4,11 @@ import {Motion, spring} from 'react-motion';
 const images = [
   {
     id: 1,
-    url: "grey_background.jpg"
+    url: "img1.jpg"
   },
   {
     id: 2,
-    url: "img1.jpg"
+    url: "grey_background.jpg"
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export default class ImageSelector extends React.Component {
     this.handleImageSelector = this.handleImageSelector.bind(this);
   }
 
-  getImages(images) {
+  getImages() {
     const selectElement = images.map((image) => {
       let imageActive = image.id === this.state.imageSelected.id ? 'active' : '';
       return (
@@ -84,7 +84,7 @@ export default class ImageSelector extends React.Component {
               opacity: `${x}`,
             }}>
               {this.state.selectorActive &&
-                this.getImages(images)
+                this.getImages()
               }
             </div>
           </div>

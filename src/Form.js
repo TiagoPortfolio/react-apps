@@ -1,6 +1,7 @@
 import React from 'react';
 import './form.css';
 import ImageSelector from './ImageSelector';
+import SearchBox from './SearchBox';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -143,7 +144,7 @@ export default class Form extends React.Component {
             <label>
               Hobbies
             </label>
-            
+            <SearchBox hobbiesSelected={this.props.globalState.hobbies} handleHobbySelector={this.props.onHobbyAdd}/>
           </div>
           <input type="submit" ref="submitButton" className={this.state.submitClass} value="Submit Profile" />
         </form>
