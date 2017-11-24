@@ -43,8 +43,21 @@ export default class SearchBox extends React.Component {
 
     this.getHobbies = this.getHobbies.bind(this);
     this.searchHobby = this.searchHobby.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
     this.handleHobby = this.handleHobby.bind(this);
+    this.handleMouseClick = this.handleMouseClick.bind(this);
+  }
+
+  componentDidMount () {
+    window.addEventListener('mousedown', this.handleMouseClick);
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('mousedown', this.handleMouseClick);
+  }
+
+  handleMouseClick(e) {
+    const showHobbiesFound = e.target.closest('.hobbySelector') !== null && this.state.showHobbiesFound;
+    this.setState({showHobbiesFound});
   }
 
   getHobbies() {
@@ -63,21 +76,23 @@ export default class SearchBox extends React.Component {
   }
 
   searchHobby(e) {
-    const hobbiesSelected = this.props.hobbiesSelected;
-    const hobbiesFound = hobbies.filter(hobby => {
-      return hobby.name.toLowerCase().includes(e.target.value.toLowerCase()) && !hobbiesSelected.includes(hobby);
-    })
-    this.setState({
-      hobbiesFound: hobbiesFound,
-      searchTerm: e.target.value,
-      showHobbiesFound: true,
-    });
-  }
-
-  handleBlur() {
-    this.setState({
-      showHobbiesFound: false,
-    });
+    if (e.target.value.length) {
+      const hobbiesSelected = this.props.hobbiesSelected;
+      const hobbiesFound = hobbies.filter(hobby => {
+        return hobby.name.toLowerCase().includes(e.target.value.toLowerCase()) && !hobbiesSelected.includes(hobby);
+      })
+      this.setState({
+        hobbiesFound: hobbiesFound,
+        searchTerm: e.target.value,
+        showHobbiesFound: true,
+      });
+    } else {
+      this.setState({
+        hobbiesFound: [],
+        searchTerm: e.target.value,
+        showHobbiesFound: true,
+      });
+    }
   }
 
   handleHobby(hobbySelected) {

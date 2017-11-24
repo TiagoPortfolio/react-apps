@@ -102,7 +102,7 @@ export default class Profile extends React.Component {
         <div className="email"><em>{this.props.globalState.email}</em></div>
         <div className="intro">{this.props.globalState.intro}</div>
         <div className="hobbies">
-          {this.props.globalState.hobbies}
+          {this.getHobbies()}
         </div>
         <div className="background"></div>
       </div>

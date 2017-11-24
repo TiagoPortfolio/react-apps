@@ -213,7 +213,7 @@ class App extends React.Component {
         </div>
         <div className="appContent">
           <div className="appWrapper">
-            
+            <Profile globalState={this.state} />
           </div>
           <div className="appWrapper">
             <Form globalState={this.state}
