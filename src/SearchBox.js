@@ -2,15 +2,15 @@ import React from 'react';
 import {Motion, spring} from 'react-motion';
 
 const hobbies = [
-  {id: 1, name: 'Acting'},
-  {id: 2, name: 'Basketball'},
-  {id: 3, name: 'Board Games'},
-  {id: 4, name: 'Chess'},
-  {id: 5, name: 'Coding'},
-  {id: 6, name: 'Cooking'},
-  {id: 7, name: 'Dance'},
-  {id: 8, name: 'Fashion'},
-  {id: 9, name: 'Football'},
+  {id: 1,  name: 'Acting'},
+  {id: 2,  name: 'Basketball'},
+  {id: 3,  name: 'Board Games'},
+  {id: 4,  name: 'Chess'},
+  {id: 5,  name: 'Coding'},
+  {id: 6,  name: 'Cooking'},
+  {id: 7,  name: 'Dance'},
+  {id: 8,  name: 'Fashion'},
+  {id: 9,  name: 'Football'},
   {id: 10, name: 'Gardening'},
   {id: 11, name: 'Guitar'},
   {id: 12, name: 'Knitting'},
@@ -55,8 +55,20 @@ export default class SearchBox extends React.Component {
     window.removeEventListener('mousedown', this.handleMouseClick);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.hobbiesFound.length != this.state.hobbiesFound.length) {
+      document.getElementsByName("hobbies")[0].focus();
+    }
+  }
+
   handleMouseClick(e) {
     const showHobbiesFound = e.target.closest('.hobbySelector') !== null && this.state.showHobbiesFound;
+    console.log(e.target.closest('.hobbySelector'));
+    console.log(this.state.showHobbiesFound);
+    if (e.target.closest('.hobbySelector') === null) {
+      console.log("remove!!");
+      document.getElementsByClassName("hobbyFakeInput")[0].classList.remove("focused");
+    }
     this.setState({showHobbiesFound});
   }
 
@@ -75,7 +87,27 @@ export default class SearchBox extends React.Component {
     return hobbiesList;
   }
 
+  getHobbiesSelected() {
+    const hobbiesSelected = this.props.hobbiesSelected.map((hobby) => {
+      return (
+        <div key={hobby.id} className="hobbyBox">
+          <span className="removeHobby">
+            x
+          </span>
+          <span className="hobbyName">
+            {hobby.name}
+          </span>
+        </div>
+      );
+    });
+    return hobbiesSelected;
+  }
+
   searchHobby(e) {
+    const hobbyFakeInputClass = document.getElementsByClassName("hobbyFakeInput")[0];
+    if (!hobbyFakeInputClass.className.includes("focused")) {
+      hobbyFakeInputClass.className += " focused";
+    }
     if (e.target.value.length) {
       const hobbiesSelected = this.props.hobbiesSelected;
       const hobbiesFound = hobbies.filter(hobby => {
@@ -99,9 +131,11 @@ export default class SearchBox extends React.Component {
     const hobbiesSelected = this.props.hobbiesSelected;
     const hobbiesFound = this.state.hobbiesFound.filter(hobby => {
       return !hobby.name.toLowerCase().includes(hobbySelected.name.toLowerCase()) && !hobbiesSelected.includes(hobby);
-    })
+    });
     this.setState({
-      hobbiesFound
+      searchTerm: '',
+      hobbiesFound,
+      showHobbiesFound: false,
     });
     this.props.handleHobbySelector(hobbySelected);
   }
@@ -111,10 +145,20 @@ export default class SearchBox extends React.Component {
       <Motion style={{x: spring(this.state.showHobbiesFound ? 1 : 0)}}>
         {({x}) =>
           <div className="hobbySelector" onBlur={this.handleBlur}>
-            <input type="text" name="hobbies" placeholder="Add hobbies to your profile" value={this.state.searchTerm}
+            <div className="hobbyFakeInput">
+              <div className="hobbiesSelected">
+                {this.getHobbiesSelected()}
+              </div>
+              <div className="hobbyInput">
+                <input type="text" name="hobbies"
+                  placeholder="Add hobbies to your profile"
+                  autoComplete="off"
+                  value={this.state.searchTerm}
                   onFocus={this.searchHobby}
                   onChange={this.searchHobby}
-            />
+                />
+              </div>
+            </div>
             <div className="hobbiesList" style={{
               opacity: x,
             }}>
