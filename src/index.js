@@ -175,7 +175,7 @@ class App extends React.Component {
     
     this.handleChange = this.handleChange.bind(this);
     this.handleAvatarShapeChange = this.handleAvatarShapeChange.bind(this);
-    this.onHobbyAdd = this.onHobbyAdd.bind(this);
+    this.onHobbyAction = this.onHobbyAction.bind(this);
   }
 
   handleChange(e) {
@@ -197,9 +197,16 @@ class App extends React.Component {
     });
   }
 
-  onHobbyAdd(hobby) {
+  onHobbyAction(hobby, action) {
     const hobbies = this.state.hobbies;
-    hobbies.push(hobby);
+console.log(action)
+    if (action === 'add') {
+      hobbies.push(hobby);
+    } else if (action === 'remove') {
+      let removedHobbyIndex = hobbies.indexOf(hobby);
+      hobbies.splice(removedHobbyIndex, 1);
+    }
+
     this.setState({
       hobbies
     });
@@ -213,16 +220,16 @@ class App extends React.Component {
         </div>
         <div className="appContent">
           <div className="appWrapper">
-            {/*
+            
               <Profile globalState={this.state} />
-            */}
+            
           </div>
           <div className="appWrapper">
             <Form globalState={this.state}
                   formHandler={this.handleChange}
                   onImageChange={(i) => this.handleImageChange(i)}
                   onAvatarShapeChange={this.handleAvatarShapeChange}
-                  onHobbyAdd={(h) => this.onHobbyAdd(h)}
+                  onHobbyAction={(h, action) => this.onHobbyAction(h, action)}
             />
           </div>
         </div>

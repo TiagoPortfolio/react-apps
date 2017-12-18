@@ -144,7 +144,7 @@ export default class Form extends React.Component {
             <label>
               Hobbies
             </label>
-            <SearchBox hobbiesSelected={this.props.globalState.hobbies} handleHobbySelector={this.props.onHobbyAdd}/>
+            <SearchBox hobbiesSelected={this.props.globalState.hobbies} handleHobbySelector={this.props.onHobbyAction}/>
           </div>
           <input type="submit" ref="submitButton" className={this.state.submitClass} value="Submit Profile" />
         </form>

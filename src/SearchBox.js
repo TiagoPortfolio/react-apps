@@ -76,7 +76,7 @@ export default class SearchBox extends React.Component {
     const handleHobby = this.handleHobby;
     const hobbiesList = this.state.hobbiesFound.map((hobby) => {
       return (
-        <li key={hobby.id} onClick={() => handleHobby(hobby)}>
+        <li key={hobby.id} onClick={() => handleHobby(hobby, 'add')}>
           {hobby.name}
           <span className="addHobby">
             +
@@ -88,10 +88,11 @@ export default class SearchBox extends React.Component {
   }
 
   getHobbiesSelected() {
+    const handleHobby = this.handleHobby;
     const hobbiesSelected = this.props.hobbiesSelected.map((hobby) => {
       return (
         <div key={hobby.id} className="hobbyBox">
-          <span className="removeHobby">
+          <span className="removeHobby" onClick={() => handleHobby(hobby, 'remove')}>
             x
           </span>
           <span className="hobbyName">
@@ -127,17 +128,23 @@ export default class SearchBox extends React.Component {
     }
   }
 
-  handleHobby(hobbySelected) {
+  handleHobby(hobbySelected, action) {
+    const searchTerm = this.state.searchTerm;
     const hobbiesSelected = this.props.hobbiesSelected;
-    const hobbiesFound = this.state.hobbiesFound.filter(hobby => {
-      return !hobby.name.toLowerCase().includes(hobbySelected.name.toLowerCase()) && !hobbiesSelected.includes(hobby);
-    });
+    const hobbiesFound = (action === 'add' ?
+      this.state.hobbiesFound.filter(hobby => {
+        return !hobby.name.toLowerCase().includes(hobbySelected.name.toLowerCase()) && !hobbiesSelected.includes(hobby);
+      }) :
+      hobbies.filter(hobby => {
+        return hobby.name.toLowerCase().includes(searchTerm.toLowerCase()) && !hobbiesSelected.includes(hobby);
+      })
+    );
     this.setState({
-      searchTerm: '',
+      searchTerm: action === 'add' ? '' : searchTerm,
       hobbiesFound,
       showHobbiesFound: false,
     });
-    this.props.handleHobbySelector(hobbySelected);
+    this.props.handleHobbySelector(hobbySelected, action);
   }
 
   render() {
