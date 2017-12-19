@@ -82,7 +82,6 @@ export default class Profile extends React.Component {
   getHobbies() {
     return this.props.globalState.hobbies.map(hobby => {
       return (
-
         <div key={hobby.id} className="hobby">
           {hobby.name}
         </div>
