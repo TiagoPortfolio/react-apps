@@ -16,6 +16,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "http://tiagoportfolio.github.io/projects/react-apps/profile-creator/build/",
   "devDependencies": {
     "gh-pages": "^1.2.0"
   }

@@ -58,8 +58,8 @@ body {
 .QuoteBox-controls #new-quote {
 	/*text-shadow: */
 	color: white;
-	background-color: #1b95e0;
-	padding: 10px;
+	background-color: #d8590e;
+  padding: 10px 15px;
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 10px;
@@ -70,7 +70,7 @@ body {
 }
 
 .QuoteBox-controls #new-quote:hover {
-	color: #1b95e0;
+	color: #d8590e;
 	background-color: white;
 }
 
