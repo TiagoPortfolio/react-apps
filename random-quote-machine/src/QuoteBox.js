@@ -11,7 +11,7 @@ const QuoteBox = ({quote, newQuoteHandler}) => {
 			<hr />
 			<div className="QuoteBox-controls">
 				<div id="new-quote" role="button" tabIndex="0" onClick={newQuoteHandler}>New Quote</div>
-				<a id="tweet-quote">
+				<a id="tweet-quote" href={`https://twitter.com/intent/tweet?text="${quote.text}" - ${quote.author}`}>
 					<a id="tweet-quote"
 					   href={`https://twitter.com/intent/tweet?text="${quote.text}" - ${quote.author}`}
 					   target="_blank"
