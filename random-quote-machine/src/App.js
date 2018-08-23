@@ -2,17 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import QuoteBox from './QuoteBox.js';
-
-const quotes = [
-	{
-		text: 'Random quote',
-		author: 'Random author'
-	},
-	{
-		text: 'Random quote 2',
-		author: 'Random author 2'
-	}
-];
+import quotes from './quotes.js';
 
 class App extends Component {
 	constructor(props) {
@@ -39,12 +29,13 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Random Quote Machine</h1>
+					<div className="App-react-app">
+						<img src={logo} className="App-logo" alt="logo" />
+						<h2 className="App-intro">React App</h2>
+						<img src={logo} className="App-logo" alt="logo" />
+					</div>
 				</header>
-				<p className="App-intro">
-					To get started, edit <code>src/App.js</code> and save to reload.
-				</p>
 				<QuoteBox quote={this.state} newQuoteHandler={this.showNewQuote} />
 			</div>
 		);

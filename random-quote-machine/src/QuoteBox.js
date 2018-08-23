@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import logo from './logo.svg';
-// import './QuoteBox.css';
-
-
 
 const QuoteBox = ({quote, newQuoteHandler}) => {
 	return (
 		<div id="quote-box">
-			<div className="quote">
-				<p id="text">{quote.text}</p>
-				<p id="author">{quote.author}</p>
+			<div className="QuoteBox-quote">
+				<span id="text">" {quote.text} "</span>
+				<span id="author"> - {quote.author}</span>
 			</div>
-			<div className="controls">
-			<div id="new-quote" role="button" tabindex="0" onClick={newQuoteHandler}>New Quote</div>
+			<hr />
+			<div className="QuoteBox-controls">
+				<div id="new-quote" role="button" tabIndex="0" onClick={newQuoteHandler}>New Quote</div>
 				<a id="tweet-quote" 
 					 href="https://twitter.com/share"
-					 class="twitter-share-button" data-size="large"
+					 className="twitter-share-button" data-size="large"
 					 data-text={`https://twitter.com/intent/tweet?text=${quote.text} - ${quote.author}`}
 					 data-show-count="false">
 					 Tweet
 				</a>
-				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
 			</div>
 		</div>
 	);
@@ -29,8 +26,7 @@ const QuoteBox = ({quote, newQuoteHandler}) => {
 
 QuoteBox.propTypes = {
 	quote: PropTypes.object.isRequired,
-	newQuoteHandler: PropTypes.func.isRequired,
-	tweetQuoteHandler: PropTypes.func.isRequired
+	newQuoteHandler: PropTypes.func.isRequired
 };
 
 export default QuoteBox;
