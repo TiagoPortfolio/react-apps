@@ -11,12 +11,13 @@ const QuoteBox = ({quote, newQuoteHandler}) => {
 			<hr />
 			<div className="QuoteBox-controls">
 				<div id="new-quote" role="button" tabIndex="0" onClick={newQuoteHandler}>New Quote</div>
-				<a id="tweet-quote" 
-					 href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-					 className="twitter-share-button" data-size="large"
-					 data-text={`"${quote.text}" - ${quote.author}`}
-					 data-show-count="false">
-					 Tweet
+				<a id="tweet-quote">
+					<a id="tweet-quote"
+					   href={`https://twitter.com/intent/tweet?text="${quote.text}" - ${quote.author}`}
+					   target="_blank"
+					   className="twitter-share-button" data-size="large"
+					   data-show-count="false" title="Tweet this quote!">
+					</a>
 				</a>
 			</div>
 		</div>
