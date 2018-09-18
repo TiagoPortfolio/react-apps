@@ -6,39 +6,48 @@ import DrumPad from './DrumPad';
 const drumPads = [
 	{
 		'id': 'drum-Q',
-		'key': 'Q'
+		'key': 'Q',
+		'keyCode': 81
 	},
 	{
 		'id': 'drum-W',
-		'key': 'W'
+		'key': 'W',
+		'keyCode': 87
 	},
 	{
 		'id': 'drum-E',
-		'key': 'E'
+		'key': 'E',
+		'keyCode': 69
 	},
 	{
 		'id': 'drum-A',
-		'key': 'A'
+		'key': 'A',
+		'keyCode': 65
 	},
 	{
 		'id': 'drum-S',
-		'key': 'S'
+		'key': 'S',
+		'keyCode': 83
 	},
 	{
 		'id': 'drum-D',
-		'key': 'D'
+		'key': 'D',
+		'keyCode': 68
 	},
 	{
 		'id': 'drum-Z',
-		'key': 'Z'
+		'key': 'Z',
+		'keyCode': 90
 	},
 	{
 		'id': 'drum-X',
-		'key': 'X'
+		'key': 'X',
+		'keyCode': 88
 	},
 	{
 		'id': 'drum-C',
-		'key': 'C'
+		'key': 'C',
+		'keyCode': 67
 	}
 ];
 
@@ -50,15 +59,6 @@ class App extends Component {
 		};
 
 		this.drumPadHandleClick = this.drumPadHandleClick.bind(this);
-		this.drumPadHandleKeyPress = this.drumPadHandleKeyPress.bind(this);
-	}
-
-	componentDidMount() {
-		document.addEventListener('keydown', this.handleKeyPress);
-	}
-
-	componentWillUnmount() {
-		document.removeEventListener('keydown', this.handleKeyPress);
 	}
 
 	drumPadHandleClick() {
@@ -66,22 +66,13 @@ class App extends Component {
 		audio.play();
 	}
 
-	drumPadHandleKeyPress(e) {
-		console.log(e.key);
-		var audio = document.getElementById("audio");
-		audio.play();
-	}
-
-	handleKeyPress(e) {
-		// if (e.keyCode === this.props.keyCode) {
-		// 	this.playSound();
-		// }
-		console.log(e.keyCode);
-	}
-
 	render() {
 		const drumPadsComponents = drumPads.map((drumPad) =>
-			<DrumPad id={drumPad.id} key={drumPad.key} keyPad={drumPad.key}
+			<DrumPad
+				id={drumPad.id}
+				key={drumPad.key}
+				keyCode={drumPad.keyCode}
+				drum={drumPad.key}
 				drumPadClickHandler={this.drumPadHandleClick}
 			/>
 		);
