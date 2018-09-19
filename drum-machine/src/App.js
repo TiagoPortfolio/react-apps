@@ -1,88 +1,67 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import drumKit from './drumKit.js';
 import DrumPad from './DrumPad';
+import Display from './Display';
 
-const drumPads = [
-	{
-		'id': 'drum-Q',
-		'key': 'Q',
-		'keyCode': 81
-	},
-	{
-		'id': 'drum-W',
-		'key': 'W',
-		'keyCode': 87
-	},
-	{
-		'id': 'drum-E',
-		'key': 'E',
-		'keyCode': 69
-	},
-	{
-		'id': 'drum-A',
-		'key': 'A',
-		'keyCode': 65
-	},
-	{
-		'id': 'drum-S',
-		'key': 'S',
-		'keyCode': 83
-	},
-	{
-		'id': 'drum-D',
-		'key': 'D',
-		'keyCode': 68
-	},
-	{
-		'id': 'drum-Z',
-		'key': 'Z',
-		'keyCode': 90
-	},
-	{
-		'id': 'drum-X',
-		'key': 'X',
-		'keyCode': 88
-	},
-	{
-		'id': 'drum-C',
-		'key': 'C',
-		'keyCode': 67
-	}
-];
+
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// text: defaultText.join("\n")
+			style: 'Electro',
+			description: '',
+			volume: 100,
 		};
 
-		this.drumPadHandleClick = this.drumPadHandleClick.bind(this);
+		this.updateStyle = this.updateStyle.bind(this);
+		this.updateDescription = this.updateDescription.bind(this);
+		this.updateVolume = this.updateVolume.bind(this);
 	}
 
-	drumPadHandleClick() {
-		var audio = document.getElementById("audio");
-		audio.play();
+	updateStyle(style) {
+		this.setState({
+			style
+		});
+	}
+
+	updateDescription(description) {
+		this.setState({
+			description
+		});
+	}
+
+	updateVolume(volume) {
+		this.setState({
+			volume
+		})
 	}
 
 	render() {
-		const drumPadsComponents = drumPads.map((drumPad) =>
+		const drumPadsComponents = drumKit.drumPads.map((drumPad) =>
 			<DrumPad
 				id={drumPad.id}
 				key={drumPad.key}
 				keyCode={drumPad.keyCode}
 				drum={drumPad.key}
-				drumPadClickHandler={this.drumPadHandleClick}
+				volume={this.state.volume}
+				style={this.state.style}
+				description={drumPad.description[this.state.style]}
+				updateDescription={this.updateDescription}
 			/>
 		);
 
 		return (
 			<div className="App">
 				<div id="drum-machine">
-					<div id="display">
-
-					</div>
+					<Display
+						style={this.state.style}
+						description={drumPad.description[this.state.style]}
+						volume={this.state.volume}
+						updateVolume={this.updateVolume}
+					/>
 					{drumPadsComponents}
 				</div>
 			</div>

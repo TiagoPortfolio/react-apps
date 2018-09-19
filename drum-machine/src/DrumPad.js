@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 class DrumPad extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			// text: defaultText.join("\n")
-		};
 
 		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.handleOnClick = this.handleOnClick.bind(this);
 		this.playSound = this.playSound.bind(this);
+		this.toggleHoverStyle = this.toggleHoverStyle.bind(this);
 	}
 
 	componentDidMount() {
@@ -21,27 +20,46 @@ class DrumPad extends Component {
 	}
 
 	handleKeyPress(e) {
-		console.log(e.keyCode);
-		// if (e.keyCode === this.props.keyCode) {
-		// 	this.playSound();
-		// }
-		console.log(e.keyCode);
+		if (e.keyCode === this.props.keyCode) {
+			// Add class to give hover style
+			this.playSound();
+		}
+	}
+
+	handleOnClick() {
+		this.playSound();
 	}
 
 	playSound() {
 		const audio = document.getElementById(this.props.drum);
+		audio.load();
+		audio.volume = this.props.volume / 100;
 		audio.play();
+
+		// Update state from App
+		this.props.updateDescription(this.props.description);
+
+		this.toggleHoverStyle();
+	}
+
+	toggleHoverStyle() {
+		const drumPad = document.getElementById(this.props.id);
+
+		// Add hover style to simulate the drumpad being pressed
+		drumPad.classList.toggle('hover');
+		setTimeout(function() {
+			drumPad.classList.toggle('hover');
+		}, 500);
 	}
 
 	render() {
-		const audio = '';
+		const { id, drum, style } = this.props;
 
 		return (
-		    <div id={this.props.id} className="drum-pad" onClick={this.props.drumPadClickHandler}>
-		    	{this.props.drum}
-				<audio id={this.props.drum} className="clip">
-					<source src="myAudio.mp3" type="audio/mp3" />
-					<source src="myAudio.ogg" type="audio/ogg" />
+		    <div id={id} className="drum-pad" onClick={this.handleOnClick}>
+		    	{drum}
+				<audio id={drum} className="clip">
+					<source src={process.env.PUBLIC_URL + "/audio/" + style + "/" + drum + ".wav"} type="audio/wav" />
 					<p>Your browser doesn't support HTML5 audio.</p>
 				</audio>
 			</div>
@@ -49,9 +67,14 @@ class DrumPad extends Component {
 	}
 }
 
-// DrumPad.propTypes = {
-// 	text: PropTypes.string.isRequired,
-// 	drumPadHandler: PropTypes.func.isRequired
-// };
+DrumPad.propTypes = {
+	id: PropTypes.string.isRequired,
+	keyCode: PropTypes.number.isRequired,
+	drum: PropTypes.string.isRequired,
+	volume: PropTypes.number.isRequired,
+	style: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	updateDescription: PropTypes.func.isRequired,
+};
 
 export default DrumPad;
