@@ -58,11 +58,13 @@ class App extends Component {
 				<div id="drum-machine">
 					<Display
 						style={this.state.style}
-						description={drumPad.description[this.state.style]}
+						description={this.state.description}
 						volume={this.state.volume}
 						updateVolume={this.updateVolume}
 					/>
-					{drumPadsComponents}
+					<div id="drumPads">
+						{drumPadsComponents}
+					</div>
 				</div>
 			</div>
 		);

@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#drumPads {
+  display: flex;                       /* establish flex container */
+  width: 55%;
+  flex-wrap: wrap;                     /* enable flex items to wrap */
+  justify-content: space-around;
+  
+}
+.drum-pad {
+  flex: 0 0 32%;                       /* don't grow, don't shrink, width */
+  height: 100px;
+  margin-bottom: 5px;
+  background-color: #999;
+}
+.cell:nth-child(3n) {
+  background-color: #F00;
+}

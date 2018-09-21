@@ -34,7 +34,7 @@ class Display extends Component {
 	}
 }
 
-DrumPad.propTypes = {
+Display.propTypes = {
 	style: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	volume: PropTypes.number.isRequired,
