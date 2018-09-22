@@ -33,6 +33,9 @@
   align-content: center;
   max-width: 700px;
   margin: 0 auto;
+  background-color: #dcdcdc;
+  border-radius: 10px;
+  box-shadow: black 3px 3px 5px;
 }
 
 #drum-machine > div {
@@ -55,6 +58,7 @@
   border-radius: 10px;
   background-color: #999;
   box-shadow: black 3px 3px 5px;
+  cursor: pointer;
 }
 
 .drum-pad span {
