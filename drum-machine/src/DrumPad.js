@@ -49,7 +49,7 @@ class DrumPad extends Component {
 		drumPad.classList.toggle('hover');
 		setTimeout(function() {
 			drumPad.classList.toggle('hover');
-		}, 500);
+		}, 150);
 	}
 
 	render() {
@@ -57,7 +57,7 @@ class DrumPad extends Component {
 
 		return (
 		    <div id={id} className="drum-pad" onClick={this.handleOnClick}>
-		    	{drum}
+		    	<span>{drum}</span>	
 				<audio id={drum} className="clip">
 					<source src={process.env.PUBLIC_URL + "/audio/" + style + "/" + drum + ".wav"} type="audio/wav" />
 					<p>Your browser doesn't support HTML5 audio.</p>

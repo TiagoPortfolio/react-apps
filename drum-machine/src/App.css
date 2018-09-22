@@ -27,19 +27,45 @@
   to { transform: rotate(360deg); }
 }
 
+#drum-machine {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#drum-machine > div {
+  padding: 20px;
+}
+
 #drumPads {
   display: flex;                       /* establish flex container */
   width: 55%;
   flex-wrap: wrap;                     /* enable flex items to wrap */
-  justify-content: space-around;
+  justify-content: center;
   
 }
 .drum-pad {
-  flex: 0 0 32%;                       /* don't grow, don't shrink, width */
+  display: flex;
+  justify-content: center;
+  flex: 0 0 30%;                       /* don't grow, don't shrink, width */
   height: 100px;
-  margin-bottom: 5px;
+  margin: 5px;
+  border-radius: 10px;
   background-color: #999;
+  box-shadow: black 3px 3px 5px;
 }
-.cell:nth-child(3n) {
-  background-color: #F00;
+
+.drum-pad span {
+  align-self: center;
+  font-weight: 800;
+  font-style: bold;
+}
+
+.drum-pad.hover {
+  box-shadow: none;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  background-color: #3ed650;
 }

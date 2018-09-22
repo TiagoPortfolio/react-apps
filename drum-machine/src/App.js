@@ -56,15 +56,15 @@ class App extends Component {
 		return (
 			<div className="App">
 				<div id="drum-machine">
+					<div id="drumPads">
+						{drumPadsComponents}
+					</div>
 					<Display
 						style={this.state.style}
 						description={this.state.description}
 						volume={this.state.volume}
 						updateVolume={this.updateVolume}
 					/>
-					<div id="drumPads">
-						{drumPadsComponents}
-					</div>
 				</div>
 			</div>
 		);

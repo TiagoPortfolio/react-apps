@@ -18,16 +18,16 @@ class Display extends Component {
 
 		return (
 			<div id="display">
-				<div class="drum-style">
+				<div className="drum-style">
 					{style}
 				</div>
 
-				<div class="drum-sound-description">
+				<div className="drum-sound-description">
 					{description}
 				</div>
 
-				<div class="volume-control">
-					<input id="drum-volume" class="volume-slider" type="range" min="1" max="100" value={volume} orient="vertical" oninput={this.handleSliderChange} />
+				<div className="volume-control">
+					<input id="drum-volume" className="volume-slider" type="range" min="1" max="100" value={volume} orient="vertical" onChange={this.handleSliderChange} />
 				</div>
 			</div>
 		);
