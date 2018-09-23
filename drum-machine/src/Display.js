@@ -10,7 +10,7 @@ class Display extends Component {
 
 
 	handleSliderChange(e) {
-		this.props.updateVolume(parseInt(e.target.value));
+		this.props.updateVolume(parseInt(e.target.value, 10));
 	}
 
 	render() {
