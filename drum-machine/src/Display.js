@@ -10,7 +10,7 @@ class Display extends Component {
 
 
 	handleSliderChange(e) {
-		this.props.updateVolume(e.targe.value);
+		this.props.updateVolume(parseInt(e.target.value));
 	}
 
 	render() {
@@ -19,14 +19,17 @@ class Display extends Component {
 		return (
 			<div id="display">
 				<div className="drum-style">
-					{style}
+					<span className="title">Style</span>
+					<span className="info">{style}</span>
 				</div>
 
 				<div className="drum-sound-description">
-					{description}
+					<span className="title">Sound</span>
+					<span className="info">{description}</span>
 				</div>
 
 				<div className="volume-control">
+					<span className="title">Volume</span>
 					<input id="drum-volume" className="volume-slider" type="range" min="1" max="100" value={volume} orient="vertical" onChange={this.handleSliderChange} />
 				</div>
 			</div>

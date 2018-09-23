@@ -1,75 +1,125 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 50px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	margin-bottom: 50px;
+	color: white;
+}
+
+.App-react-app {
+	display: flex;
+	align-self: center;
 }
 
 .App-title {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
 }
 
 #drum-machine {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #dcdcdc;
-  border-radius: 10px;
-  box-shadow: black 3px 3px 5px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	max-width: 600px;
+	margin: 0 auto;
+	background-color: #2f2f2f;
+	border-radius: 10px;
+	box-shadow: black 3px 3px 5px;
+	color: white;
 }
 
 #drum-machine > div {
-  padding: 20px;
+	padding: 20px;
 }
 
 #drumPads {
-  display: flex;                       /* establish flex container */
-  width: 55%;
-  flex-wrap: wrap;                     /* enable flex items to wrap */
-  justify-content: center;
-  
+	display: flex;                       /* establish flex container */
+	width: 63%;
+	flex-wrap: wrap;                     /* enable flex items to wrap */
+	justify-content: center;
 }
+
+#brand {
+	flex: 100%;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+	font-size: 1.2em;
+	font-weight: 800;
+	font-style: italic;
+	letter-spacing: 0.1em;
+}
+
 .drum-pad {
-  display: flex;
-  justify-content: center;
-  flex: 0 0 30%;                       /* don't grow, don't shrink, width */
-  height: 100px;
-  margin: 5px;
-  border-radius: 10px;
-  background-color: #999;
-  box-shadow: black 3px 3px 5px;
-  cursor: pointer;
+	display: flex;
+	justify-content: center;
+	flex: 0 0 30%;                       /* don't grow, don't shrink, width */
+	height: 100px;
+	margin: 5px;
+	border-radius: 10px;
+	background-color: #616161;
+	box-shadow: #de0000 3px 3px 5px;
+	color: black;
+	cursor: pointer;
 }
 
 .drum-pad span {
-  align-self: center;
-  font-weight: 800;
-  font-style: bold;
+	align-self: center;
+	font-weight: 800;
 }
 
 .drum-pad.hover {
-  box-shadow: none;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  background-color: #3ed650;
+	box-shadow: none;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	background-image: radial-gradient(circle, white, #62ff00, #00ff14);
+}
+
+#display,
+#display > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+#display .title {
+	font-size: 1.1em;
+	font-weight: 800;
+	font-style: italic;
+	letter-spacing: 0.1em;
+	margin-bottom: 5px;
+}
+
+#display .info {
+	background: #942727;
+	border-radius: 5px;
+	padding: 5px 0px;
+}
+
+#drum-volume {
+	user-select: none;
+	cursor: pointer;
+	outline: none;
 }

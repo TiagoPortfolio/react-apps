@@ -55,8 +55,19 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<header className="App-header">
+					<h1 className="App-title">Drum Pad Machine</h1>
+					<div className="App-react-app">
+						<img src={logo} className="App-logo" alt="logo" />
+						<h2 className="App-intro">React App</h2>
+						<img src={logo} className="App-logo" alt="logo" />
+					</div>
+				</header>
 				<div id="drum-machine">
 					<div id="drumPads">
+						<div id="brand">
+							<span>React Drum Pad 9000</span>
+						</div>
 						{drumPadsComponents}
 					</div>
 					<Display
