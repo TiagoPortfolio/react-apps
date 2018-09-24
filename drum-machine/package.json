@@ -13,9 +13,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
-  "homepage": "https://tiagoportfolio.github.io/react-apps",
+  "homepage": "https://tiagoportfolio.github.io/react-apps/drum-machine",
   "devDependencies": {
     "gh-pages": "^2.0.0"
   }
