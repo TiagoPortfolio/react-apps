@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class DrumPad extends Component {
 	constructor(props) {
@@ -12,11 +12,11 @@ class DrumPad extends Component {
 	}
 
 	componentDidMount() {
-		document.addEventListener('keydown', this.handleKeyPress);
+		document.addEventListener("keydown", this.handleKeyPress);
 	}
 
 	componentWillUnmount() {
-		document.removeEventListener('keydown', this.handleKeyPress);
+		document.removeEventListener("keydown", this.handleKeyPress);
 	}
 
 	handleKeyPress(e) {
@@ -46,9 +46,9 @@ class DrumPad extends Component {
 		const drumPad = document.getElementById(this.props.id);
 
 		// Add hover style to simulate the drumpad being pressed
-		drumPad.classList.toggle('hover');
+		drumPad.classList.toggle("hover");
 		setTimeout(function() {
-			drumPad.classList.toggle('hover');
+			drumPad.classList.toggle("hover");
 		}, 150);
 	}
 
@@ -56,10 +56,20 @@ class DrumPad extends Component {
 		const { id, drum, style } = this.props;
 
 		return (
-		    <div id={id} className="drum-pad" onClick={this.handleOnClick}>
-		    	<span>{drum}</span>	
+			<div id={id} className="drum-pad" onClick={this.handleOnClick}>
+				<span>{drum}</span>
 				<audio id={drum} className="clip">
-					<source src={process.env.PUBLIC_URL + "/audio/" + style + "/" + drum + ".wav"} type="audio/wav" />
+					<source
+						src={
+							process.env.PUBLIC_URL +
+							"/audio/" +
+							style +
+							"/" +
+							drum +
+							".wav"
+						}
+						type="audio/wav"
+					/>
 					<p>Your browser doesn't support HTML5 audio.</p>
 				</audio>
 			</div>
@@ -74,7 +84,7 @@ DrumPad.propTypes = {
 	volume: PropTypes.number.isRequired,
 	style: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
-	updateDescription: PropTypes.func.isRequired,
+	updateDescription: PropTypes.func.isRequired
 };
 
 export default DrumPad;

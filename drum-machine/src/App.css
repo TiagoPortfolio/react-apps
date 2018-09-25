@@ -34,8 +34,12 @@
 }
 
 @keyframes App-logo-spin {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 #drum-machine {
@@ -55,9 +59,9 @@
 }
 
 #drumPads {
-	display: flex;                       /* establish flex container */
+	display: flex; /* establish flex container */
 	width: 63%;
-	flex-wrap: wrap;                     /* enable flex items to wrap */
+	flex-wrap: wrap; /* enable flex items to wrap */
 	justify-content: center;
 }
 
@@ -75,7 +79,7 @@
 .drum-pad {
 	display: flex;
 	justify-content: center;
-	flex: 0 0 30%;                       /* don't grow, don't shrink, width */
+	flex: 0 0 30%; /* don't grow, don't shrink, width */
 	height: 100px;
 	margin: 5px;
 	border-radius: 10px;
@@ -122,4 +126,34 @@
 	user-select: none;
 	cursor: pointer;
 	outline: none;
+}
+
+#arrowButon {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	border-color: 2px black;
+}
+
+.arrow-left {
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-right: 20px solid blue;
+}
+.arrow-right {
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid green;
+}
+
+#arrowButon .arrow-left {
+	margin-right: 10px;
+}
+
+#arrowButon .arrow-right {
+	margin-left: 10px;
 }

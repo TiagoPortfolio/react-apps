@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import drumKit from './drumKit.js';
-import DrumPad from './DrumPad';
-import Display from './Display';
-
-
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import drumKit from "./drumKit.js";
+import DrumPad from "./DrumPad";
+import Display from "./Display";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			style: 'Electro',
-			description: '',
-			volume: 100,
+			style: "Electro",
+			description: "",
+			volume: 100
 		};
 
 		this.updateStyle = this.updateStyle.bind(this);
@@ -21,7 +19,15 @@ class App extends Component {
 		this.updateVolume = this.updateVolume.bind(this);
 	}
 
-	updateStyle(style) {
+	updateStyle(direction) {
+		const style =
+			drumKit[
+				((direction === "left"
+					? drumKit.indexOf(this.state.style) - 1
+					: drumKit.indexOf(this.state.style) + 1) +
+					drumKit.length) %
+					drumKit.length
+			];
 		this.setState({
 			style
 		});
@@ -36,11 +42,11 @@ class App extends Component {
 	updateVolume(volume) {
 		this.setState({
 			volume
-		})
+		});
 	}
 
 	render() {
-		const drumPadsComponents = drumKit.drumPads.map((drumPad) =>
+		const drumPadsComponents = drumKit.drumPads.map(drumPad => (
 			<DrumPad
 				id={drumPad.id}
 				key={drumPad.key}
@@ -51,7 +57,7 @@ class App extends Component {
 				description={drumPad.description[this.state.style]}
 				updateDescription={this.updateDescription}
 			/>
-		);
+		));
 
 		return (
 			<div className="App">
@@ -75,6 +81,7 @@ class App extends Component {
 						description={this.state.description}
 						volume={this.state.volume}
 						updateVolume={this.updateVolume}
+						updateStyle={this.updateStyle}
 					/>
 				</div>
 			</div>

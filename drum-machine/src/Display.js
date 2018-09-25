@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Display extends Component {
 	constructor(props) {
 		super(props);
 
+		this.handleStyleChange = this.handleStyleChange.bind(this);
 		this.handleSliderChange = this.handleSliderChange.bind(this);
 	}
 
-
 	handleSliderChange(e) {
 		this.props.updateVolume(parseInt(e.target.value, 10));
+	}
+
+	handleStyleChange(direction) {
+		this.props.updateStyle(direction);
 	}
 
 	render() {
@@ -21,6 +25,8 @@ class Display extends Component {
 				<div className="drum-style">
 					<span className="title">Style</span>
 					<span className="info">{style}</span>
+					<ArrowButton direction="left" arrowHandler={this.handleStyleChange}/>
+					<ArrowButton direction="right" arrowHandler={this.handleStyleChange}/>
 				</div>
 
 				<div className="drum-sound-description">
@@ -30,7 +36,16 @@ class Display extends Component {
 
 				<div className="volume-control">
 					<span className="title">Volume</span>
-					<input id="drum-volume" className="volume-slider" type="range" min="1" max="100" value={volume} orient="vertical" onChange={this.handleSliderChange} />
+					<input
+						id="drum-volume"
+						className="volume-slider"
+						type="range"
+						min="1"
+						max="100"
+						value={volume}
+						orient="vertical"
+						onChange={this.handleSliderChange}
+					/>
 				</div>
 			</div>
 		);
