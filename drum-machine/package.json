@@ -15,7 +15,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://tiagoportfolio.github.io/react-apps/drum-machine",
+  "homepage": "https://tiagoportfolio.github.io/projects/react-apps/drum-machine",
   "devDependencies": {
     "gh-pages": "^2.0.0"
   }
