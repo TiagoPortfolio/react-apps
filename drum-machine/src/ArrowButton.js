@@ -1,14 +1,26 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const ArrowButton = ({ direction, arrowHandler }) => {
-	return (
-		<div
-			id="arrowButton"
-			onClick={arrowHandler(direction)}
-			className={"arrow-" + direction}
-		/>
-	);
+class ArrowButton extends Component {
+	constructor(props) {
+		super(props);
+
+		this.arrowClickHandler = this.arrowClickHandler.bind(this)
+	}
+
+	arrowClickHandler() {
+		this.props.arrowHandler(this.props.direction);
+	}
+
+	render() {
+		return (
+			<div
+				id="arrowButton"
+				onClick={this.arrowClickHandler}
+				className={"arrow-" + this.props.direction}
+			/>
+		);
+	}
 };
 
 ArrowButton.propTypes = {

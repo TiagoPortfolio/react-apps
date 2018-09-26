@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import ArrowButton from "./ArrowButton";
 
 class Display extends Component {
 	constructor(props) {
@@ -25,8 +26,10 @@ class Display extends Component {
 				<div className="drum-style">
 					<span className="title">Style</span>
 					<span className="info">{style}</span>
-					<ArrowButton direction="left" arrowHandler={this.handleStyleChange}/>
-					<ArrowButton direction="right" arrowHandler={this.handleStyleChange}/>
+					<div id="style-arrows">
+						<ArrowButton direction="left" arrowHandler={this.handleStyleChange}/>
+						<ArrowButton direction="right" arrowHandler={this.handleStyleChange}/>
+					</div>
 				</div>
 
 				<div className="drum-sound-description">

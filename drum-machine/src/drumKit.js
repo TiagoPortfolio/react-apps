@@ -1,7 +1,7 @@
 const drumKit = {
 	styles: [
 		'Electro',
-		'Acoustic'
+		'Big Shaq'
 	],
 	drumPads: [
 		{
@@ -9,8 +9,8 @@ const drumKit = {
 			key: 'Q',
 			keyCode: 81,
 			description: {
-				Electro: 'Snare Q',
-				Acoustic: 'Snare Q'
+				electro: 'Snare Q',
+				bigshaq: '2 + 2'
 			}
 		},
 		{
@@ -18,8 +18,8 @@ const drumKit = {
 			key: 'W',
 			keyCode: 87,
 			description: {
-				Electro: 'Snare W',
-				Acoustic: 'Snare W'
+				electro: 'Snare W',
+				bigshaq: 'Quick Maths'
 			}
 		},
 		{
@@ -27,8 +27,8 @@ const drumKit = {
 			key: 'E',
 			keyCode: 69,
 			description: {
-				Electro: 'Snare E',
-				Acoustic: 'Snare E'
+				electro: 'Snare E',
+				bigshaq: 'Quack'
 			}
 		},
 		{
@@ -36,8 +36,8 @@ const drumKit = {
 			key: 'A',
 			keyCode: 65,
 			description: {
-				Electro: 'Snare A',
-				Acoustic: 'Snare A'
+				electro: 'Snare A',
+				bigshaq: 'No Ketchup'
 			}
 		},
 		{
@@ -45,8 +45,8 @@ const drumKit = {
 			key: 'S',
 			keyCode: 83,
 			description: {
-				Electro: 'Snare S',
-				Acoustic: 'Snare S'
+				electro: 'Snare S',
+				bigshaq: 'Not Hot'
 			}
 		},
 		{
@@ -54,8 +54,8 @@ const drumKit = {
 			key: 'D',
 			keyCode: 68,
 			description: {
-				Electro: 'Snare D',
-				Acoustic: 'Snare D'
+				electro: 'Snare D',
+				bigshaq: 'Jacket'
 			}
 		},
 		{
@@ -63,8 +63,8 @@ const drumKit = {
 			key: 'Z',
 			keyCode: 90,
 			description: {
-				Electro: 'Snare Z',
-				Acoustic: 'Snare Z'
+				electro: 'Snare Z',
+				bigshaq: 'Skkrraa'
 			}
 		},
 		{
@@ -72,8 +72,8 @@ const drumKit = {
 			key: 'X',
 			keyCode: 88,
 			description: {
-				Electro: 'Snare X',
-				Acoustic: 'Snare X'
+				electro: 'Snare X',
+				bigshaq: 'Skididipapa'
 			}
 		},
 		{
@@ -81,8 +81,8 @@ const drumKit = {
 			key: 'C',
 			keyCode: 67,
 			description: {
-				Electro: 'Snare C',
-				Acoustic: 'Snare C'
+				electro: 'Snare C',
+				bigshaq: 'Boom'
 			}
 		}
 	],

@@ -63,10 +63,21 @@ class DrumPad extends Component {
 						src={
 							process.env.PUBLIC_URL +
 							"/audio/" +
-							style +
+							style.toLowerCase().replace(/\s/g, '') +
 							"/" +
 							drum +
 							".wav"
+						}
+						type="audio/wav"
+					/>
+					<source
+						src={
+							process.env.PUBLIC_URL +
+							"/audio/" +
+							style.toLowerCase().replace(/\s/g, '') +
+							"/" +
+							drum +
+							".mp3"
 						}
 						type="audio/wav"
 					/>

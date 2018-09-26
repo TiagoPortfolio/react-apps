@@ -9,7 +9,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			style: "Electro",
+			style: "Big Shaq",
 			description: "",
 			volume: 100
 		};
@@ -20,13 +20,13 @@ class App extends Component {
 	}
 
 	updateStyle(direction) {
-		const style =
-			drumKit[
+		const style = 
+			drumKit.styles[
 				((direction === "left"
-					? drumKit.indexOf(this.state.style) - 1
-					: drumKit.indexOf(this.state.style) + 1) +
-					drumKit.length) %
-					drumKit.length
+					? drumKit.styles.indexOf(this.state.style) - 1
+					: drumKit.styles.indexOf(this.state.style) + 1) +
+					drumKit.styles.length) %
+					drumKit.styles.length
 			];
 		this.setState({
 			style
@@ -54,7 +54,7 @@ class App extends Component {
 				drum={drumPad.key}
 				volume={this.state.volume}
 				style={this.state.style}
-				description={drumPad.description[this.state.style]}
+				description={drumPad.description[this.state.style.toLowerCase().replace(/\s/g, '')]}
 				updateDescription={this.updateDescription}
 			/>
 		));

@@ -128,26 +128,33 @@
 	outline: none;
 }
 
-#arrowButon {
-	height: 100px;
+#style-arrows {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+#arrowButton {
+	/*height: 100px;
 	width: 100px;
 	border-radius: 50%;
-	border-color: 2px black;
+	border-color: 2px black;*/
+  cursor: pointer;
 }
 
 .arrow-left {
 	width: 0;
 	height: 0;
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	border-right: 20px solid blue;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 15px solid blue;
 }
 .arrow-right {
 	width: 0;
 	height: 0;
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	border-left: 20px solid green;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid green;
 }
 
 #arrowButon .arrow-left {
