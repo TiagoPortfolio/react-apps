@@ -129,17 +129,17 @@
 }
 
 #style-arrows {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
 }
 
 #arrowButton {
-	/*height: 100px;
+	height: 100px;
 	width: 100px;
 	border-radius: 50%;
-	border-color: 2px black;*/
-  cursor: pointer;
+	border-color: 2px black;
+	cursor: pointer;
 }
 
 .arrow-left {

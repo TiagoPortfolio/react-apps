@@ -5,7 +5,7 @@ class ArrowButton extends Component {
 	constructor(props) {
 		super(props);
 
-		this.arrowClickHandler = this.arrowClickHandler.bind(this)
+		this.arrowClickHandler = this.arrowClickHandler.bind(this);
 	}
 
 	arrowClickHandler() {
@@ -14,14 +14,15 @@ class ArrowButton extends Component {
 
 	render() {
 		return (
-			<div
-				id="arrowButton"
-				onClick={this.arrowClickHandler}
-				className={"arrow-" + this.props.direction}
-			/>
+			<div id="arrowButton">
+				<div
+					onClick={this.arrowClickHandler}
+					className={"arrow-" + this.props.direction}
+				/>
+			</div>
 		);
 	}
-};
+}
 
 ArrowButton.propTypes = {
 	direction: PropTypes.string.isRequired,
