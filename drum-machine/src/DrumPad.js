@@ -66,20 +66,9 @@ class DrumPad extends Component {
 							style.toLowerCase().replace(/\s/g, '') +
 							"/" +
 							drum +
-							".wav"
-						}
-						type="audio/wav"
-					/>
-					<source
-						src={
-							process.env.PUBLIC_URL +
-							"/audio/" +
-							style.toLowerCase().replace(/\s/g, '') +
-							"/" +
-							drum +
 							".mp3"
 						}
-						type="audio/wav"
+						type="audio/mp3"
 					/>
 					<p>Your browser doesn't support HTML5 audio.</p>
 				</audio>
