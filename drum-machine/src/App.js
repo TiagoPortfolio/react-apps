@@ -10,7 +10,7 @@ class App extends Component {
 		super(props);
 		this.state = {
 			style: "Big Shaq",
-			description: "",
+			description: "Silence",
 			volume: 100
 		};
 

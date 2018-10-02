@@ -6,16 +6,29 @@ class ArrowButton extends Component {
 		super(props);
 
 		this.arrowClickHandler = this.arrowClickHandler.bind(this);
+		this.toggleHoverStyle = this.toggleHoverStyle.bind(this);
 	}
 
 	arrowClickHandler() {
 		this.props.arrowHandler(this.props.direction);
+		this.toggleHoverStyle();
+	}
+
+	toggleHoverStyle() {
+		const arrow = document.getElementById("style-" + this.props.direction);
+
+		// Add hover style to simulate the arrow being pressed
+		arrow.classList.toggle("hover");
+		setTimeout(function() {
+			arrow.classList.toggle("hover");
+		}, 150);
 	}
 
 	render() {
 		return (
 			<div id="arrowButton">
 				<div
+					id={"style-" + this.props.direction}
 					onClick={this.arrowClickHandler}
 					className={"arrow-" + this.props.direction}
 				/>
