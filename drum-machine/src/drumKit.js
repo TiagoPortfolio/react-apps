@@ -46,7 +46,7 @@ const drumKit = {
 			keyCode: 83,
 			description: {
 				electro: 'Snare S',
-				bigshaq: 'Not Hot'
+				bigshaq: 'Jacket'
 			}
 		},
 		{
@@ -55,7 +55,7 @@ const drumKit = {
 			keyCode: 68,
 			description: {
 				electro: 'Snare D',
-				bigshaq: 'Jacket'
+				bigshaq: 'Not Hot'
 			}
 		},
 		{
