@@ -26,10 +26,12 @@ class ArrowButton extends Component {
 
 	render() {
 		return (
-			<div id="arrowButton">
+			<div 
+				id="arrowButton"
+				onClick={this.arrowClickHandler}
+			>
 				<div
 					id={"style-" + this.props.direction}
-					onClick={this.arrowClickHandler}
 					className={"arrow-" + this.props.direction}
 				/>
 			</div>
