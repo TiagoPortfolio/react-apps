@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const QuoteBox = ({quote, newQuoteHandler}) => {
+const QuoteBox = ({ quote, newQuoteHandler }) => {
 	return (
 		<div id="quote-box">
 			<div className="QuoteBox-quote">
@@ -10,19 +10,28 @@ const QuoteBox = ({quote, newQuoteHandler}) => {
 			</div>
 			<hr />
 			<div className="QuoteBox-controls">
-				<div id="new-quote" role="button" tabIndex="0" onClick={newQuoteHandler}>New Quote</div>
-				<a id="tweet-quote" href={`https://twitter.com/intent/tweet?text="${quote.text}" - ${quote.author}`}>
-					<a id="tweet-quote"
-					   href={`https://twitter.com/intent/tweet?text="${quote.text}" - ${quote.author}`}
-					   target="_blank"
-					   className="twitter-share-button" data-size="large"
-					   data-show-count="false" title="Tweet this quote!">
-					</a>
+				<div
+					id="new-quote"
+					role="button"
+					tabIndex="0"
+					onClick={newQuoteHandler}
+				>
+					New Quote
+				</div>
+				<a
+					id="tweet-quote"
+					className="tweet-button"
+					href={`https://twitter.com/intent/tweet?text="${
+						quote.text
+					}" - ${quote.author}`}
+					target="_blank"
+				>
+					Tweet
 				</a>
 			</div>
 		</div>
 	);
-}
+};
 
 QuoteBox.propTypes = {
 	quote: PropTypes.object.isRequired,

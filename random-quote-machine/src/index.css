@@ -11,13 +11,16 @@ body {
 }
 
 #quote-box {
-	width: 700px;
-	height: 300px;
+	width: 70%;
+	max-width: 700px;
+	height: 40%;
 	padding: 30px;
 	margin-top: 20px;
 	display: flex;
+	margin: 0 auto;
 	flex-direction: column;
 	border-radius: 10px;
+	background-color: white;
 	box-shadow: 0 5px 20px 5px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important
 }
 
@@ -26,7 +29,7 @@ body {
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
-  margin: 1em 0;
+  margin: 0px;
   padding: 0;
 }
 
@@ -59,7 +62,7 @@ body {
 	/*text-shadow: */
 	color: white;
 	background-color: #d8590e;
-  padding: 10px 15px;
+  	padding: 10px 15px;
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 10px;
@@ -78,7 +81,18 @@ body {
 	outline: none;
 }
 
-.QuoteBox-controls #new-quote {
-
+.tweet-button {
+	/*text-shadow: */
+	color: white;
+	background-color: #1b95e0;
+  	padding: 10px 15px;
+	cursor: pointer;
+	border: 2px solid black;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 1.2em;
+	transition: color 0.5s ease;
+	transition: background-color 0.5s ease;
+	outline: none;
+	text-decoration: none;
 }
-

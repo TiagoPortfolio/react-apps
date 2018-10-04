@@ -7,7 +7,9 @@ import quotes from './quotes.js';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = quotes[Math.floor(Math.random() * quotes.length)];
+		this.state = {
+			quote: quotes[Math.floor(Math.random() * quotes.length)]
+		};
 
 		this.showNewQuote = this.showNewQuote.bind(this);
 	}
@@ -18,8 +20,10 @@ class App extends Component {
 		while (true) {
 			let randomIndex = Math.floor(Math.random() * quotes.length);
 			console.log(quotes[randomIndex]);
-			if (quotes[randomIndex].text !== this.state.text) {
-				this.setState(quotes[randomIndex]);
+			if (quotes[randomIndex].text !== this.state.quote.text) {
+				this.setState({
+					quote: quotes[randomIndex]
+				});
 				break;
 			}
 		}		
@@ -36,7 +40,7 @@ class App extends Component {
 						<img src={logo} className="App-logo" alt="logo" />
 					</div>
 				</header>
-				<QuoteBox quote={this.state} newQuoteHandler={this.showNewQuote} />
+				<QuoteBox quote={this.state.quote} newQuoteHandler={this.showNewQuote} />
 			</div>
 		);
 	}
