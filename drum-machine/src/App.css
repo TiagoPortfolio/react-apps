@@ -42,16 +42,24 @@
 	}
 }
 
-#drum-machine {
+#drum-container {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-content: center;
+	align-items: left;
 	max-width: 600px;
 	margin: 0 auto;
 	background-image: linear-gradient(to bottom left, #000000, #757575);
 	border-radius: 10px;
 	box-shadow: black 3px 3px 5px;
 	color: white;
+}
+
+#drum-machine {
+	display: flex;
+	justify-content: center;
+	align-content: center;
 }
 
 #drum-machine > div {
@@ -66,9 +74,8 @@
 }
 
 #brand {
-	flex: 100%;
-	margin-left: 10px;
-	margin-bottom: 10px;
+    margin-top: 10px;
+	margin-left: 15px;
 	text-align: left;
 	font-size: 1.2em;
 	font-weight: 800;
@@ -172,6 +179,9 @@
     background-color: #616161;
     box-shadow: #04ff00 2px 2px 5px;
 	cursor: pointer;
+	outline: none;
+	user-select: none;
+	-webkit-appearance: none;
 }
 
 #arrowButton div {
@@ -205,4 +215,74 @@
 
 #arrowButon .arrow-right {
 	margin-left: 10px;
+}
+
+@media screen and (max-width: 650px) {
+	#drum-container {
+		max-width: 500px;
+	}
+
+	.drum-pad {
+		flex: 0 0 29%;
+	    height: 80px;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	#drum-container {
+		max-width: 400px;
+	}
+
+	.drum-pad {
+		flex: 0 0 28%;
+	    height: 55px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#drum-container {
+		max-width: 300px;
+	}
+
+	.drum-pad {
+		flex: 0 0 28%;
+	    height: 45px;
+	}
+}
+
+
+@media screen and (max-width: 370px) {
+	#drum-container {
+		max-width: 300px;
+	}
+
+	.drum-pad {
+		flex: 0 0 27%;
+	    height: 35px;
+	}
+
+	.brand {
+		font-size: 1.1em;
+	}
+
+	#display .title {
+		font-size: 0.9em;
+	}
+
+	#display .info {
+		font-size: 0.8em;
+	}
+
+	#arrow-button {
+		height: 30px;
+	    width: 30px;
+	}
+
+	.arrow-left {
+		border-right: 5px solid #222222;
+	}
+
+	.arrow-right {
+		border-left: 5px solid #222222;
+	}
 }

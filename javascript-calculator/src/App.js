@@ -19,40 +19,56 @@ class App extends Component {
 			"*",
 			"/",
 			".",
-			"C"
+			"C",
+			"="
 		]
 
 		this.handleCalculatorCommand = this.handleCalculatorCommand.bind(this);
 	}
 
 	handleCalculatorCommand(command) {
-		let currentExpression = this.state.expression;
+		let currentExpression = this.state.currentExpression;
+		let isExpressionEndANumber = this.operators.indexOf(currentExpression[currentExpression.length - 1]) === -1;
 
-		// Ignore multiple zeros at the start
-		if (
-		    currentExpression.length === 1 &&
-		    command === "0"
-		)  {
-			return;
+		if (currentExpression.length === 1) {
+			// Ignore multiple zeros at the start
+			if (command === "0") {
+				return;
+			} else if (this.operators.indexOf(command) === -1) {
+				// Remove first zero to be replaced
+				currentExpression = currentExpression.substring(0, currentExpression.length - 1);
+			}
 		}
 
 		// If an operator command is pressed
 		if (this.operators.indexOf(command) !== -1) {
-			// Ignore if last character on display is that same operator
 			if (currentExpression[currentExpression.length - 1] === command) {
+				// Ignore if last character on display is that same operator
 				return;
 			} else if (command === ".") {
-				// Get last number (decimal or not) and ignore more than one decimal point
-				let lastNumber = currentExpression.match(/(\d*\.)?\d+$/gm);
-				if (lastNumber !== null) {
-					if (lastNumber[0].indexOf('.') !== -1) {
-						return;
+				if (isExpressionEndANumber) {
+					// Get last number (decimal or not) and ignore more than one decimal point
+					let lastNumber = currentExpression.match(/^(\d*\.)?\d*$/igm);
+					if (lastNumber !== null) {
+						if (lastNumber[0].indexOf('.') !== -1) {
+							return;
+						}
 					}
+				} else {
+					command = '0.';
 				}
-				command = "0."
+			} else if (!isExpressionEndANumber) {
+				// Remove last command character to be replaced
+				currentExpression = currentExpression.substring(0, currentExpression.length - 1);
+			} else if (command === "=") {
+				// Evaluate expression
+				currentExpression = eval(currentExpression).toString();
+				command = "";
+			} else if (command === "C") {
+				// Clear display
+				currentExpression = "0";
+				command = "";
 			}
-		} else if (command === ".") {
-
 		}
 
 		this.setState({
@@ -66,6 +82,7 @@ class App extends Component {
 				id={key.id}
 				key={key.key}
 				keyCode={key.keyCode}
+				command={key.key}
 				handleCommand={this.handleCalculatorCommand}
 			/>
 		));
@@ -80,20 +97,19 @@ class App extends Component {
 						<img src={logo} className="App-logo" alt="logo" />
 					</div>
 				</header>
-				<div id="drum-machine">
-					<div id="drumPads">
-						<div id="brand">
-							<span>React Calculator Ti Infinity</span>
-						</div>
-						{calculatorKeys}
+
+				<div id="calculator-container">
+					<div id="brand">
+						<span>React Calculator TI Infinity</span>
 					</div>
-					<Display
-						style={this.state.style}
-						description={this.state.description}
-						volume={this.state.volume}
-						updateVolume={this.updateVolume}
-						expression={this.updateStyle}
-					/>
+					<div id="calculator">
+						<div id="calculator-keys">
+							{calculatorKeys}
+						</div>
+						<Display
+							expression={this.state.currentExpression}
+						/>
+					</div>
 				</div>
 			</div>
 		);

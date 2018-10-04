@@ -20,13 +20,13 @@ class Key extends Component {
 	}
 
 	handleKeyPress(e) {
-		if (this.keyCode.indexOf(e.keyCode) !== -1) {
-			this.props.handleCommand(this.props.key);
+		if (this.props.keyCode.indexOf(e.keyCode) !== -1) {
+			this.props.handleCommand(this.props.command);
 		}
 	}
 
 	handleOnClick() {
-		this.playSound();
+		this.props.handleCommand(this.props.command);
 	}
 
 	playSound() {
@@ -52,11 +52,11 @@ class Key extends Component {
 	}
 
 	render() {
-		const { id, key } = this.props;
+		const { id, command } = this.props;
 
 		return (
-			<div id={id} className="calculator-key" onClick={this.props.handleCommand}>
-				<span>{key}</span>
+			<div id={id} className="calculator-key" onClick={this.handleOnClick}>
+				<span>{command}</span>
 			</div>
 		);
 	}

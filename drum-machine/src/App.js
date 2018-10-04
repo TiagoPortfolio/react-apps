@@ -11,7 +11,7 @@ class App extends Component {
 		this.state = {
 			style: "Big Shaq",
 			description: "Silence",
-			volume: 100
+			volume: 50
 		};
 
 		this.updateStyle = this.updateStyle.bind(this);
@@ -69,20 +69,22 @@ class App extends Component {
 						<img src={logo} className="App-logo" alt="logo" />
 					</div>
 				</header>
-				<div id="drum-machine">
-					<div id="drumPads">
-						<div id="brand">
-							<span>React Drum Pad 9000</span>
-						</div>
-						{drumPadsComponents}
+				<div id="drum-container">
+					<div id="brand">
+						<span>React Drum Pad 9000</span>
 					</div>
-					<Display
-						style={this.state.style}
-						description={this.state.description}
-						volume={this.state.volume}
-						updateVolume={this.updateVolume}
-						updateStyle={this.updateStyle}
-					/>
+					<div id="drum-machine">
+						<div id="drumPads">
+							{drumPadsComponents}
+						</div>
+						<Display
+							style={this.state.style}
+							description={this.state.description}
+							volume={this.state.volume}
+							updateVolume={this.updateVolume}
+							updateStyle={this.updateStyle}
+						/>
+					</div>
 				</div>
 			</div>
 		);

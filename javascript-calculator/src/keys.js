@@ -19,7 +19,7 @@ const keys = [
 	},
 	{
 		id: "divide",
-		key: "%",
+		key: "/",
 		keyCode: [111],
 		type: "operator"
 	},
@@ -43,7 +43,7 @@ const keys = [
 	},
 	{
 		id: "multiply",
-		key: "x",
+		key: "*",
 		keyCode: [106],
 		type: "operator"
 	},
