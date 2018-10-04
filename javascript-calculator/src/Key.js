@@ -7,8 +7,6 @@ class Key extends Component {
 
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this.handleOnClick = this.handleOnClick.bind(this);
-		this.playSound = this.playSound.bind(this);
-		this.toggleHoverStyle = this.toggleHoverStyle.bind(this);
 	}
 
 	componentDidMount() {
@@ -29,28 +27,6 @@ class Key extends Component {
 		this.props.handleCommand(this.props.command);
 	}
 
-	playSound() {
-		// const audio = document.getElementById(this.props.drum);
-		// audio.load();
-		// audio.volume = this.props.volume / 100;
-		// audio.play();
-
-		// Update state from App
-		// this.props.updateDescription(this.props.description);
-
-		// this.toggleHoverStyle();
-	}
-
-	toggleHoverStyle() {
-		// const drumPad = document.getElementById(this.props.id);
-
-		// // Add hover style to simulate the drumpad being pressed
-		// drumPad.classList.toggle("hover");
-		// setTimeout(function() {
-		// 	drumPad.classList.toggle("hover");
-		// }, 150);
-	}
-
 	render() {
 		const { id, command } = this.props;
 
@@ -62,14 +38,11 @@ class Key extends Component {
 	}
 }
 
-// Key.propTypes = {
-// 	id: PropTypes.string.isRequired,
-// 	keyCode: PropTypes.number.isRequired,
-// 	drum: PropTypes.string.isRequired,
-// 	volume: PropTypes.number.isRequired,
-// 	style: PropTypes.string.isRequired,
-// 	description: PropTypes.string.isRequired,
-// 	updateDescription: PropTypes.func.isRequired
-// };
+Key.propTypes = {
+	id: PropTypes.string.isRequired,
+	keyCode: PropTypes.number.isRequired,
+	command: PropTypes.string.isRequired,
+	handleCommand: PropTypes.func.isRequired,
+};
 
 export default Key;

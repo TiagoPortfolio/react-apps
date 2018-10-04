@@ -13,22 +13,17 @@ class App extends Component {
 			previousResult: ""
 		};
 
-		this.operators = [
-			"+",
-			"-",
-			"*",
-			"/",
-			".",
-			"C",
-			"="
-		]
+		this.operators = ["+", "-", "*", "/", ".", "C", "="];
 
 		this.handleCalculatorCommand = this.handleCalculatorCommand.bind(this);
 	}
 
 	handleCalculatorCommand(command) {
 		let currentExpression = this.state.currentExpression;
-		let isExpressionEndANumber = this.operators.indexOf(currentExpression[currentExpression.length - 1]) === -1;
+		let isExpressionEndANumber =
+			this.operators.indexOf(
+				currentExpression[currentExpression.length - 1]
+			) === -1;
 
 		if (currentExpression.length === 1) {
 			// Ignore multiple zeros at the start
@@ -36,7 +31,10 @@ class App extends Component {
 				return;
 			} else if (this.operators.indexOf(command) === -1) {
 				// Remove first zero to be replaced
-				currentExpression = currentExpression.substring(0, currentExpression.length - 1);
+				currentExpression = currentExpression.substring(
+					0,
+					currentExpression.length - 1
+				);
 			}
 		}
 
@@ -48,18 +46,23 @@ class App extends Component {
 			} else if (command === ".") {
 				if (isExpressionEndANumber) {
 					// Get last number (decimal or not) and ignore more than one decimal point
-					let lastNumber = currentExpression.match(/^(\d*\.)?\d*$/igm);
+					let lastNumber = currentExpression.match(
+						/^(\d*\.)?\d*$/gim
+					);
 					if (lastNumber !== null) {
-						if (lastNumber[0].indexOf('.') !== -1) {
+						if (lastNumber[0].indexOf(".") !== -1) {
 							return;
 						}
 					}
 				} else {
-					command = '0.';
+					command = "0.";
 				}
 			} else if (!isExpressionEndANumber) {
 				// Remove last command character to be replaced
-				currentExpression = currentExpression.substring(0, currentExpression.length - 1);
+				currentExpression = currentExpression.substring(
+					0,
+					currentExpression.length - 1
+				);
 			} else if (command === "=") {
 				// Evaluate expression
 				currentExpression = eval(currentExpression).toString();
@@ -72,7 +75,7 @@ class App extends Component {
 		}
 
 		this.setState({
-			currentExpression : currentExpression + command
+			currentExpression: currentExpression + command
 		});
 	}
 
@@ -103,12 +106,8 @@ class App extends Component {
 						<span>React Calculator TI Infinity</span>
 					</div>
 					<div id="calculator">
-						<div id="calculator-keys">
-							{calculatorKeys}
-						</div>
-						<Display
-							expression={this.state.currentExpression}
-						/>
+						<div id="calculator-keys">{calculatorKeys}</div>
+						<Display expression={this.state.currentExpression} />
 					</div>
 				</div>
 			</div>
