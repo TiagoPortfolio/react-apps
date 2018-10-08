@@ -14,7 +14,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://tiagoportfolio.github.io/projects/react-apps/markdown-previewer/build",
+  "homepage": "http://tiagoportfolio.github.io/projects/react-apps/markdown-previewer",
   "browserslist": [
     ">0.2%",
     "not dead",
