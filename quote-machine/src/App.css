@@ -92,6 +92,12 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	padding: 10px;
+	opacity: 0;
+	transition: opacity 0.5s ease-out;
+}
+
+.QuoteBox-quote.fadein {
+	opacity: 1;
 }
 
 .QuoteBox-quote #text {

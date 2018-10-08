@@ -40,7 +40,10 @@ class App extends Component {
 						<img src={logo} className="App-logo" alt="logo" />
 					</div>
 				</header>
-				<QuoteBox quote={this.state.quote} newQuoteHandler={this.showNewQuote} />
+				<QuoteBox
+					quote={this.state.quote}
+					newQuoteHandler={this.showNewQuote}
+				/>
 			</div>
 		);
 	}
