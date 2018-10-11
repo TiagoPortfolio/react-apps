@@ -6,16 +6,35 @@ class QuoteBox extends Component {
 	constructor(props) {
 		super(props);
 		
+		this.showNewQuote = this.showNewQuote.bind(this);
 		this.fade = this.fade.bind(this);
 	}
 
-	componentWillUnmount() {
-		this.fade();
-
+	// Apply fade in on first mount
+	componentDidMount() {
+		setTimeout(() => {
+			this.fade();
+		}, 500);
 	}
 
-	componentDidMount() {
-		setTimeout(this.fade, 500); //call the into animation
+	// Apply fade in after each update (after each new quote)
+	componentDidUpdate() {
+		setTimeout(() => {
+			this.fade();
+		}, 500);
+	}
+
+	// Lifecycle method to control component animation and wait for fade out to end
+	shouldComponentUpdate(nextProps, nextState) {
+		if (nextProps.isQuoteRenderBlocked) {
+			return false;
+		}
+		return true;
+	}
+
+	showNewQuote() {
+		this.fade(); // Fade out quote to show new one
+		this.props.newQuoteHandler();
 	}
 
 	fade() {
@@ -24,7 +43,7 @@ class QuoteBox extends Component {
 	}
 
 	render() {
-		const { quote, newQuoteHandler } = this.props;
+		const { quote } = this.props;
 		return (
 			<div id="quote-box">
 				<div className="QuoteBox-quote">
@@ -37,7 +56,7 @@ class QuoteBox extends Component {
 						id="new-quote"
 						role="button"
 						tabIndex="0"
-						onClick={newQuoteHandler}
+						onClick={this.showNewQuote}
 					>
 						New Quote
 					</div>
@@ -58,7 +77,9 @@ class QuoteBox extends Component {
 
 QuoteBox.propTypes = {
 	quote: PropTypes.object.isRequired,
-	newQuoteHandler: PropTypes.func.isRequired
+	isQuoteRenderBlocked: PropTypes.bool.isRequired,
+	newQuoteHandler: PropTypes.func.isRequired,
+	quoteRenderHandler: PropTypes.func.isRequired
 };
 
 export default QuoteBox;
