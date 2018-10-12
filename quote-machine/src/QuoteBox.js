@@ -10,18 +10,17 @@ class QuoteBox extends Component {
 		this.fade = this.fade.bind(this);
 	}
 
+
 	// Apply fade in on first mount
 	componentDidMount() {
 		setTimeout(() => {
 			this.fade();
-		}, 500);
+		}, 250);
 	}
 
 	// Apply fade in after each update (after each new quote)
 	componentDidUpdate() {
-		setTimeout(() => {
-			this.fade();
-		}, 500);
+		this.fade();
 	}
 
 	// Lifecycle method to control component animation and wait for fade out to end
@@ -78,8 +77,7 @@ class QuoteBox extends Component {
 QuoteBox.propTypes = {
 	quote: PropTypes.object.isRequired,
 	isQuoteRenderBlocked: PropTypes.bool.isRequired,
-	newQuoteHandler: PropTypes.func.isRequired,
-	quoteRenderHandler: PropTypes.func.isRequired
+	newQuoteHandler: PropTypes.func.isRequired
 };
 
 export default QuoteBox;

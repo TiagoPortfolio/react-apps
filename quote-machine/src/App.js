@@ -3,16 +3,19 @@ import logo from "./logo.svg";
 import "./App.css";
 import QuoteBox from "./QuoteBox.js";
 import quotes from "./quotes.js";
+import colors from "./colors.js";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			quote: quotes[Math.floor(Math.random() * quotes.length)],
-			quoteRenderBlocked: false
+			quoteRenderBlocked: false,
+			backgroundColor: colors[0]
 		};
 
 		this.showNewQuote = this.showNewQuote.bind(this);
+		this.changeBackgroundColor = this.changeBackgroundColor.bind(this);
 	}
 
 	showNewQuote() {
@@ -26,14 +29,25 @@ class App extends Component {
 					quoteRenderBlocked: true
 				});
 
+				this.changeBackgroundColor();
+
 				setTimeout(() => {
 					this.setState({
 						quoteRenderBlocked: false
 					});
-				}, 500);
+				}, 250);
 				break;
 			}
 		}
+	}
+
+	changeBackgroundColor() {
+		const newColor = colors[(colors.indexOf(this.state.backgroundColor) + 1) % colors.length];
+		this.setState({
+			backgroundColor: newColor
+		});
+		document.body.style.background = this.state.backgroundColor;
+
 	}
 
 	render() {

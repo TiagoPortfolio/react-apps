@@ -1,7 +1,4 @@
 body {
-	background: linear-gradient(270deg, #00ff2b, #0081ff);
-	background-size: 400% 400%;
-	animation: Gradient-transition 5s ease;
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
@@ -11,6 +8,14 @@ body {
 	line-height: 1.5 !important;
 	-webkit-font-smoothing: antialiased !important;
 	text-rendering: optimizeLegibility;
+	transition: background-color 2s ease-out;
+	background-color: #00ff2b;
+	background-size: 400% 400%;
+}
+
+body.background-animation {
+	animation: Gradient-transition 5s ease infinite;
+	background: linear-gradient(270deg, #00ff2b, #0081ff) !important;
 }
 
 @keyframes Gradient-transition { 
@@ -93,7 +98,7 @@ body {
 	justify-content: center;
 	padding: 10px;
 	opacity: 0;
-	transition: opacity 0.5s ease-out;
+	transition: opacity 0.25s ease-out;
 }
 
 .QuoteBox-quote.fadein {
