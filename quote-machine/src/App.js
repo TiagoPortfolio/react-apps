@@ -18,11 +18,15 @@ class App extends Component {
 		this.changeBackgroundColor = this.changeBackgroundColor.bind(this);
 	}
 
+	// Apply background color on first  mount
+	componentDidMount() {
+		document.body.style.backgroundColor = this.state.backgroundColor;
+	}
+
 	showNewQuote() {
 		// Get another random quote if the quote is the same as the previous one
 		while (true) {
 			let randomIndex = Math.floor(Math.random() * quotes.length);
-			console.log(quotes[randomIndex]);
 			if (quotes[randomIndex].text !== this.state.quote.text) {
 				this.setState({
 					quote: quotes[randomIndex],
@@ -43,10 +47,13 @@ class App extends Component {
 
 	changeBackgroundColor() {
 		const newColor = colors[(colors.indexOf(this.state.backgroundColor) + 1) % colors.length];
+		console.log(newColor);
 		this.setState({
 			backgroundColor: newColor
+		}, () => {
+			document.body.style.backgroundColor = this.state.backgroundColor
 		});
-		document.body.style.background = this.state.backgroundColor;
+		
 
 	}
 

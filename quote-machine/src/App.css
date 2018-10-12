@@ -9,19 +9,6 @@ body {
 	-webkit-font-smoothing: antialiased !important;
 	text-rendering: optimizeLegibility;
 	transition: background-color 2s ease-out;
-	background-color: #00ff2b;
-	background-size: 400% 400%;
-}
-
-body.background-animation {
-	animation: Gradient-transition 5s ease infinite;
-	background: linear-gradient(270deg, #00ff2b, #0081ff) !important;
-}
-
-@keyframes Gradient-transition { 
-	0% {background-position:0% 50%}
-	50% {background-position:100% 50%}
-	100% {background-position:0% 50%}
 }
 
 .App {
@@ -41,7 +28,6 @@ body.background-animation {
 	align-content: center;
 	background-color: #222;
 	height: 150px;
-	padding: 20px;
 	margin-bottom: 50px;
 	color: white;
 }
@@ -96,7 +82,6 @@ body.background-animation {
 	flex: 3;
 	flex-direction: column;
 	justify-content: center;
-	padding: 10px;
 	opacity: 0;
 	transition: opacity 0.25s ease-out;
 }
@@ -158,4 +143,39 @@ body.background-animation {
 	outline: none;
 	text-decoration: none;
 	user-select: none;
+}
+
+@media screen and (max-width: 375px) { 
+
+	.App-header {
+		height: 130px;
+		margin-bottom: 30px;
+	}
+
+	.App-title {
+		margin-bottom: 10px;
+		margin-top: 0px;
+	}
+
+	#quote-box {
+		height: 250px;
+		width: 80%;
+		padding: 15px;
+	}
+	.QuoteBox-quote #text {
+		font-size: 1em;
+	}
+
+	.QuoteBox-quote #author {
+		font-size: 1.1em;
+	}
+
+	.QuoteBox-controls #new-quote,
+	.tweet-button {
+		font-size: 0.8em;
+	}
+
+	.QuoteBox-controls {
+		margin-top: 10px;
+	}
 }
