@@ -1,4 +1,0 @@
-// TODO
-- Finish arrow functionality and style;
-- Add styling to slider;
-- Change Display and other components to stateless component if it makes sense;
