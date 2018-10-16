@@ -23,6 +23,10 @@ class App extends Component {
 		document.body.style.backgroundColor = this.state.backgroundColor;
 	}
 
+	componentDidUpdate() {
+		document.body.style.backgroundColor = this.state.backgroundColor;
+	}
+
 	showNewQuote() {
 		// Get another random quote if the quote is the same as the previous one
 		while (true) {
@@ -47,14 +51,9 @@ class App extends Component {
 
 	changeBackgroundColor() {
 		const newColor = colors[(colors.indexOf(this.state.backgroundColor) + 1) % colors.length];
-		console.log(newColor);
 		this.setState({
 			backgroundColor: newColor
-		}, () => {
-			document.body.style.backgroundColor = this.state.backgroundColor
 		});
-		
-
 	}
 
 	render() {
