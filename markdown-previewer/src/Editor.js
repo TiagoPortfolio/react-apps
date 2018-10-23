@@ -1,13 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const Editor = ({text, editorHandler}) => {
-	return (
-		<div className="Editor-box">
-			<textarea id="editor" name="editor" autoComplete="on" placeholder="Add here your code..." value={text} type="text" onChange={editorHandler}/>
-		</div>
-	);
-}
+const Editor = ({ text, editorHandler }) => {
+	<div className="Editor-box">
+		<textarea
+			id="editor"
+			name="editor"
+			autoComplete="on"
+			placeholder="Add here your code..."
+			value={text}
+			type="text"
+			onChange={editorHandler}
+		/>
+	</div>
+};
 
 Editor.propTypes = {
 	text: PropTypes.string.isRequired,

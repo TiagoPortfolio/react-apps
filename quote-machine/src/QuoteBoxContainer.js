@@ -52,7 +52,7 @@ class QuoteBoxContainer extends Component {
 	}
 }
 
-QuoteBox.propTypes = {
+QuoteBoxContainer.propTypes = {
 	quote: PropTypes.object.isRequired,
 	isQuoteRenderBlocked: PropTypes.bool.isRequired,
 	newQuoteHandler: PropTypes.func.isRequired

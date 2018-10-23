@@ -32,7 +32,7 @@ class AppContainer extends Component {
 			if (quotes[randomIndex].text !== this.state.quote.text) {
 				this.setState(prevState => ({
 					quote: quotes[randomIndex],
-					quoteRenderBlocked: true
+					quoteRenderBlocked: true,
 					backgroundColor: this.changeBackgroundColor(prevState)
 				}));
 
