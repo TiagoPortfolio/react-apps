@@ -11,8 +11,4 @@ const Previewer = ({ markdownText }) => {
 	</div>
 };
 
-Previewer.propTypes = {
-	markdownText: PropTypes.object.isRequired
-};
-
 export default Previewer;

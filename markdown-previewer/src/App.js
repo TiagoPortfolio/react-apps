@@ -19,9 +19,4 @@ const App = ({ text, handleEditorChange }) => {
 	</div>
 }
 
-App.propTypes = {
-	text: PropTypes.string.isRequired
-	handleEditorChange: PropTypes.func.isRequired
-};
-
 export default App;
