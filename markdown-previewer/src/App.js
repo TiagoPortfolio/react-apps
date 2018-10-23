@@ -4,7 +4,7 @@ import './App.css';
 import Editor from './Editor';
 import Previewer from './Previewer';
 
-const App = ({ text, handleEditorChange }) => {
+const App = ({ text, handleEditorChange }) => (
 	<div className="App">
 		<header className="App-header">
 			<h1 className="App-title">Markdown Previewer</h1>
@@ -17,7 +17,7 @@ const App = ({ text, handleEditorChange }) => {
 		<Editor text={text} editorHandler={handleEditorChange}/>
 		<PreviewerContainer text={text} />
 	</div>
-}
+);
 
 App.propTypes = {
 	text: PropTypes.string.isRequired,

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Editor = ({ text, editorHandler }) => {
+const Editor = ({ text, editorHandler }) => (
 	<div className="Editor-box">
 		<textarea
 			id="editor"
@@ -13,7 +13,7 @@ const Editor = ({ text, editorHandler }) => {
 			onChange={editorHandler}
 		/>
 	</div>
-};
+);
 
 Editor.propTypes = {
 	text: PropTypes.string.isRequired,
