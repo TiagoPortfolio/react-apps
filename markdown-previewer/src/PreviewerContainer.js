@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import marked from "marked";
 
+import Previewer from './Previewer';
+
 class PreviewerContainer extends React.Component {
 	constructor(props) {
 		super(props);
