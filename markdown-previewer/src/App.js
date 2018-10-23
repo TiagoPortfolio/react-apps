@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
+import Editor from './Editor';
+import PreviewerContainer from './PreviewerContainer';
+
 import logo from './logo.svg';
 import './App.css';
-import Editor from './Editor';
-import Previewer from './Previewer';
 
 const App = ({ text, handleEditorChange }) => (
 	<div className="App">
