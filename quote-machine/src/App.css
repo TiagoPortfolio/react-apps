@@ -28,7 +28,6 @@ body {
 	align-content: center;
 	background-color: #222;
 	height: 150px;
-	margin-bottom: 50px;
 	color: white;
 }
 
@@ -54,6 +53,12 @@ body {
 	}
 }
 
+.quote-box--wrapper {
+	margin: 30px auto;
+	display: flex;
+	justify-content: center;
+}
+
 #quote-box {
 	width: 70%;
 	max-width: 700px;
@@ -73,7 +78,7 @@ body {
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
-  margin: 0px;
+  margin: 10px;
   padding: 0;
 }
 
@@ -81,7 +86,7 @@ body {
 	display: flex;
 	flex: 3;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	opacity: 0;
 	transition: opacity 0.25s ease-out;
 }
@@ -102,28 +107,29 @@ body {
 .QuoteBox-controls {
 	display: flex;
 	flex: 1;
-	padding: 15px;
-	margin-top: 20px;
 	align-items: center;
 	justify-content: space-evenly;
 }
 
 .QuoteBox-controls #new-quote {
-	color: white;
-	background-color: #d8590e;
-  	padding: 10px 15px;
+	color: #d8590e;
+	background-color: white;
+	padding: 10px 15px;
 	cursor: pointer;
-	border: 2px solid black;
+	border: 1px solid black;
 	border-radius: 10px;
 	font-weight: bold;
 	transition: color 0.5s ease;
+	transition: border 0.5s ease;
 	transition: background-color 0.5s ease;
 	user-select: none;
 }
 
 .QuoteBox-controls #new-quote:hover {
-	color: #d8590e;
-	background-color: white;
+	color: white;
+	box-shadow: 1px 1px 10px 0px grey;
+	border: 1px solid transparent;
+	background-color: #d8590e;
 }
 
 .QuoteBox-controls #new-quote:focus {
@@ -131,11 +137,11 @@ body {
 }
 
 .tweet-button {
-	color: white;
-	background-color: #1b95e0;
-  	padding: 10px 15px;
+	color: #1b95e0;
+	background-color: white;
+	padding: 10px 15px;
 	cursor: pointer;
-	border: 2px solid black;
+	border: 1px solid black;
 	border-radius: 10px;
 	font-weight: bold;
 	transition: color 0.5s ease;
@@ -145,11 +151,42 @@ body {
 	user-select: none;
 }
 
+.tweet-button:hover {
+	color: white;
+	box-shadow: 1px 1px 10px 0px grey;
+	border: 1px solid transparent;
+	background-color: #1b95e0;
+}
+
+@media screen and (max-width: 768px) { 
+	.QuoteBox-quote #text {
+		font-size: 1.3em;
+	}
+
+	.QuoteBox-quote #author {
+		font-size: 1.4em;
+	}
+}
+
+@media screen and (max-width: 425px) { 
+	.QuoteBox-quote #text {
+		font-size: 1.1em;
+	}
+
+	.QuoteBox-quote #author {
+		font-size: 1.2em;
+	}
+
+	.QuoteBox-controls #new-quote,
+	.tweet-button {
+		font-size: 0.9em;
+	}
+}
+
 @media screen and (max-width: 375px) { 
 
 	.App-header {
 		height: 130px;
-		margin-bottom: 30px;
 	}
 
 	.App-title {
@@ -158,10 +195,10 @@ body {
 	}
 
 	#quote-box {
-		height: 250px;
 		width: 80%;
 		padding: 15px;
 	}
+
 	.QuoteBox-quote #text {
 		font-size: 1em;
 	}
@@ -173,9 +210,5 @@ body {
 	.QuoteBox-controls #new-quote,
 	.tweet-button {
 		font-size: 0.8em;
-	}
-
-	.QuoteBox-controls {
-		margin-top: 10px;
 	}
 }

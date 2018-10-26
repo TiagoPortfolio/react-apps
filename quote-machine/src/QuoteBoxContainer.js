@@ -37,7 +37,7 @@ class QuoteBoxContainer extends Component {
 	}
 
 	fade() {
-		const quote = ReactDOM.findDOMNode(this).firstChild;
+		const quote = ReactDOM.findDOMNode(this).firstChild.firstChild;
 		quote.classList.toggle("fadein");
 	}
 
