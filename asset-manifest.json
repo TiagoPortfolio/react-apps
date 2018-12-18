@@ -1,7 +1,20 @@
 {
-  "main.css": "static/css/main.60d7db9c.css",
-  "main.css.map": "static/css/main.60d7db9c.css.map",
-  "main.js": "static/js/main.edc06d50.js",
-  "main.js.map": "static/js/main.edc06d50.js.map",
-  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg"
+  "main.css": "/projects/react-apps/tesla-battery/static/css/main.f6b50d88.chunk.css",
+  "main.js": "/projects/react-apps/tesla-battery/static/js/main.d30c52be.chunk.js",
+  "main.js.map": "/projects/react-apps/tesla-battery/static/js/main.d30c52be.chunk.js.map",
+  "static/js/1.d3ec7fa1.chunk.js": "/projects/react-apps/tesla-battery/static/js/1.d3ec7fa1.chunk.js",
+  "static/js/1.d3ec7fa1.chunk.js.map": "/projects/react-apps/tesla-battery/static/js/1.d3ec7fa1.chunk.js.map",
+  "runtime~main.js": "/projects/react-apps/tesla-battery/static/js/runtime~main.5de1776d.js",
+  "runtime~main.js.map": "/projects/react-apps/tesla-battery/static/js/runtime~main.5de1776d.js.map",
+  "static/media/TeslaClimate.css": "/projects/react-apps/tesla-battery/static/media/heat-on.2c61b1a6.svg",
+  "static/media/logo.svg": "/projects/react-apps/tesla-battery/static/media/logo.99c8f204.svg",
+  "static/media/index.css": "/projects/react-apps/tesla-battery/static/media/Roboto-Regular-webfont.30799efa.eot",
+  "static/media/TeslaCar.css": "/projects/react-apps/tesla-battery/static/media/tesla.ff16203f.jpg",
+  "static/media/TeslaStats.css": "/projects/react-apps/tesla-battery/static/media/75.37862a62.svg",
+  "static/media/TeslaCounter.css": "/projects/react-apps/tesla-battery/static/media/down.a56566ba.svg",
+  "static/media/TeslaWheels.css": "/projects/react-apps/tesla-battery/static/media/21.a52693ae.svg",
+  "static/css/main.f6b50d88.chunk.css.map": "/projects/react-apps/tesla-battery/static/css/main.f6b50d88.chunk.css.map",
+  "index.html": "/projects/react-apps/tesla-battery/index.html",
+  "precache-manifest.756fc04dc35080e19207440a79c7cc44.js": "/projects/react-apps/tesla-battery/precache-manifest.756fc04dc35080e19207440a79c7cc44.js",
+  "service-worker.js": "/projects/react-apps/tesla-battery/service-worker.js"
 }
