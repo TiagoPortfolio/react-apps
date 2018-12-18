@@ -106,7 +106,9 @@ class App extends Component {
 						<span>React Calculator TI Infinity</span>
 					</div>
 					<div id="calculator">
-						<div id="calculator-keys">{calculatorKeys}</div>
+						<div id="calculator-keys">
+							{calculatorKeys}
+						</div>
 						<Display expression={this.state.currentExpression} />
 					</div>
 				</div>

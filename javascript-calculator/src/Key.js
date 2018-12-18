@@ -31,7 +31,11 @@ class Key extends Component {
 		const { id, command } = this.props;
 
 		return (
-			<div id={id} className="calculator-key" onClick={this.handleOnClick}>
+			<div
+				id={id}
+				className="calculator-key"
+				onClick={this.handleOnClick}
+			>
 				<span>{command}</span>
 			</div>
 		);
@@ -42,7 +46,7 @@ Key.propTypes = {
 	id: PropTypes.string.isRequired,
 	keyCode: PropTypes.number.isRequired,
 	command: PropTypes.string.isRequired,
-	handleCommand: PropTypes.func.isRequired,
+	handleCommand: PropTypes.func.isRequired
 };
 
 export default Key;

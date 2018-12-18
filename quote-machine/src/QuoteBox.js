@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const QuoteBox = ({ quote, newQuoteHandler }) => {
-	return (
+const QuoteBox = ({ quote, showNewQuote }) => (
+	<div className="quote-box--wrapper">
 		<div id="quote-box">
 			<div className="QuoteBox-quote">
 				<span id="text">" {quote.text} "</span>
@@ -14,14 +13,16 @@ const QuoteBox = ({ quote, newQuoteHandler }) => {
 					id="new-quote"
 					role="button"
 					tabIndex="0"
-					onClick={newQuoteHandler}
+					onClick={showNewQuote}
 				>
 					New Quote
 				</div>
 				<a
 					id="tweet-quote"
 					className="tweet-button"
-					href={`https://twitter.com/intent/tweet?text="${quote.text};;;;;;" - ${quote.author}`}
+					href={`https://twitter.com/intent/tweet?text="${
+						quote.text
+					}" - ${quote.author}`}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -29,12 +30,7 @@ const QuoteBox = ({ quote, newQuoteHandler }) => {
 				</a>
 			</div>
 		</div>
-	);
-};
-
-QuoteBox.propTypes = {
-	quote: PropTypes.object.isRequired,
-	newQuoteHandler: PropTypes.func.isRequired
-};
+	</div>
+);
 
 export default QuoteBox;
