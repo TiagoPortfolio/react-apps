@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/projects/react-apps/tesla-battery/precache-manifest.756fc04dc35080e19207440a79c7cc44.js"
+  "/projects/react-apps/tesla-battery/precache-manifest.147633c302072ee450fb0c930ca17840.js"
 );
 
 workbox.clientsClaim();
