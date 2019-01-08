@@ -1,45 +1,73 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 50px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	background-color: #222;
+	height: 150px;
+	color: white;
+}
+
+.App-react-app {
+	display: flex;
+	align-self: center;
 }
 
 .App-title {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
+}
+
+.App-body {
+	margin-top: 20px;
+	max-width: 1200px;
+	margin: 20px auto 0px auto;
 }
 
 .Previewer-box,
-.Editor-x {
+.Editor-box {
 	display: flex;
-    justify-content: center;
-    padding: 10px
+	justify-content: center;
+	padding: 10px 20px;
+	min-width: 80%;
 }
 
 #editor {
-	height: 200px;
-	min-width: 50%;
+	height: 300px;
+	width: 100%;
 }
 
 #preview {
 	text-align: left;
-	width: 50%;
-    min-width: 300px;
+	width: 100%;
 }
+
+#preview img {
+	width: 150px;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+pre {
+	white-space: pre-wrap;
 }

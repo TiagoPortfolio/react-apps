@@ -17,8 +17,10 @@ const App = ({ text, handleEditorChange }) => (
 				<img src={logo} className="App-logo" alt="logo" />
 			</div>
 		</header>
-		<Editor text={text} editorHandler={handleEditorChange}/>
-		<PreviewerContainer text={text} />
+		<div className="App-body">
+			<Editor text={text} editorHandler={handleEditorChange}/>
+			<PreviewerContainer text={text} />
+		</div>
 	</div>
 );
 
