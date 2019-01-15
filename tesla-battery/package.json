@@ -17,7 +17,7 @@
 	},
 	"homepage": "https://tiagoportfolio.github.io/projects/react-apps/tesla-battery",
 	"devDependencies": {
-		"gh-pages": "^2.0.0"
+		"gh-pages": "^2.0.1"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
