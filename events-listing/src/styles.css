@@ -118,8 +118,8 @@ input:focus {
 .event-item {
   position: relative;
   width: 100%;
-  -webkit-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 3px 0 #e8ebed, 0 0 3px 0 #e8ebed;
 }
 
