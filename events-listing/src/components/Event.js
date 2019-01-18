@@ -1,7 +1,7 @@
 import React from 'react';
 import SubscriptionsList from './SubscriptionsList';
 
-const Event = ({event, isLoading}) => {
+const Event = ({event}) => {
   const categories = event.categories
     .map((category, index) => <span key={index}>{category}</span>)
     .reduce((prev, curr) => [prev, ' / ', curr]);
