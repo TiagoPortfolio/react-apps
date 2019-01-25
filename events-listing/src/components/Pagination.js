@@ -22,7 +22,7 @@ const Pagination = ({page, pageLimit, totalEvents, changePage}) => {
       </li>
       {pages}
       <li className={page === totalPages || !totalEvents ? 'hide' : ''}>
-        <a href="#" onClick={() => changePage(Math.min(4, page + 1))}>
+        <a href="#" onClick={() => changePage(Math.min(totalPages, page + 1))}>
           &gt;
         </a>
       </li>
