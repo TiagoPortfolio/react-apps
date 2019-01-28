@@ -47,6 +47,7 @@ class App extends Component {
 
     const data = await this.fetchData(fetchUrl);
 
+    // Build response
     if (data) {
       if (data.items) {
         topRepos = data.items.map(item => [
@@ -89,6 +90,7 @@ class App extends Component {
 
     const data = await this.fetchData(fetchUrl);
 
+    // Build response
     if (data) {
       if (data.items) {
         const promises = data.items.map(async item => {
@@ -137,13 +139,10 @@ class App extends Component {
           ...prevState,
           error: null
         }));
-
       }
 
       return await response.json();
     } catch (error) {
-      console.log(error);
-      console.log(error.message);
       this.setState((prevState) => ({
         ...prevState,
         error: error.message
@@ -152,9 +151,7 @@ class App extends Component {
   }
 
   render() {
-    const {
-      error
-    } = this.state;
+    const {error} = this.state;
 
     return (
       <div className="App">
@@ -172,7 +169,7 @@ class App extends Component {
         <TableContainer
           updateTable={this.getTopUsersFromLastMonth}
           columns={["ID", "Login", "Avatar", "Followers"]}
-          tableName="Most Active Users by Followers From Last Month"
+          tableName="Most Active Users by Followers of Last Month"
           buttonDetails={{
             id: "prolific_users",
             className: "table_button",

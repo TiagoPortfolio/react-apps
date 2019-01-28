@@ -16,6 +16,7 @@ class TableContainer extends Component {
     this.updateTable = this.updateTable.bind(this);
   }
 
+  // Fetch table data and set interval to refresh data according to UPDATE_TIME
   componentDidMount() {
     this.updateTable();
     this.interval = setInterval(() => this.updateTable(), UPDATE_TIME);
