@@ -16,9 +16,9 @@ const UsersList = ({users, page, pageLimit, isLoading}) => {
     }
   } else {
     // Get users in a specific page
-    const pagedUsers = users.slice((page - 1) * pageLimit, page * pageLimit);
+    // const pagedUsers = users.slice((page - 1) * pageLimit, page * pageLimit);
 
-    list = pagedUsers.map(user => (
+    list = users.map(user => (
       <li key={user.id}>
         <User user={user} />
       </li>

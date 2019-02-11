@@ -22,7 +22,7 @@ class TeamContainer extends Component {
     };
 
     this.handleUserSearch = this.handleUserSearch.bind(this);
-    this.handleCategoryFilter = this.handleCategoryFilter.bind(this);
+    // this.handleCategoryFilter = this.handleCategoryFilter.bind(this);
   }
 
   componentDidMount() {
@@ -31,16 +31,18 @@ class TeamContainer extends Component {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => {
         if (response.ok) {
+			console.log("response 1", response);
           return response.json();
         } else {
           throw new Error('Something went wrong...');
         }
       })
       .then(data => {
-        const sortedUsers = this.sortUsers(data);
+		console.log("data 1", data);
+        // const sortedUsers = this.sortUsers(data);
         this.setState({
-          users: sortedUsers,
-          usersFound: sortedUsers,
+          users: data,
+          usersFound: data,
           isLoading: false
         });
       })
@@ -57,28 +59,28 @@ class TeamContainer extends Component {
     );
 
   // Sort by ascending order of the sum of the plans price
-  sortUsers = users =>
-    users.sort(
-      (a, b) =>
-        a.subscriptions.reduce((total, {price}) => total + price, 0) -
-        b.subscriptions.reduce((total, {price}) => total + price, 0)
-    );
+//   sortUsers = users =>
+//     users.sort(
+//       (a, b) =>
+//         a.subscriptions.reduce((total, {price}) => total + price, 0) -
+//         b.subscriptions.reduce((total, {price}) => total + price, 0)
+//     );
 
-  handleCategoryFilter = category => {
-    this.setState((state, props) => {
-      const currentCategory =
-        category === state.currentCategory ? '' : category;
-      return {
-        usersFound: this.filterUsers(
-          state.users,
-          state.userSearchTerm,
-          currentCategory
-        ),
-        currentCategory,
-        page: 1
-      };
-    });
-  };
+//   handleCategoryFilter = category => {
+//     this.setState((state, props) => {
+//       const currentCategory =
+//         category === state.currentCategory ? '' : category;
+//       return {
+//         usersFound: this.filterUsers(
+//           state.users,
+//           state.userSearchTerm,
+//           currentCategory
+//         ),
+//         currentCategory,
+//         page: 1
+//       };
+//     });
+//   };
 
   handleUserSearch = e => {
     const userSearchTerm = e.target.value.toLowerCase();
@@ -93,9 +95,9 @@ class TeamContainer extends Component {
     }));
   };
 
-  handlePagination = page => {
-    this.setState({page});
-  };
+//   handlePagination = page => {
+//     this.setState({page});
+//   };
 
   render() {
     const {
@@ -103,7 +105,7 @@ class TeamContainer extends Component {
       page,
       userSearchTerm,
       isLoading,
-      error
+    //   error
     } = this.state;
 
     return (
