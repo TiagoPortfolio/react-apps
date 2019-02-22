@@ -1,0 +1,32 @@
+[
+  {
+    "name": "João Henriques",
+    "email": "joao_h_1989@uphill.pt",
+    "followers": 346,
+    "repo": {
+      "name": "Hello World",
+      "description": "This is my hello world project!",
+      "stars": 54
+    }
+  },
+  {
+    "name": "João Henriques",
+    "email": "joao_h_1989@uphill.pt",
+    "followers": 346,
+    "repo": {
+      "name": "Hello World",
+      "description": "This is my hello world project!",
+      "stars": 54
+    }
+  },
+  {
+    "name": "João Henriques",
+    "email": "joao_h_1989@uphill.pt",
+    "followers": 346,
+    "repo": {
+      "name": "Hello World",
+      "description": "This is my hello world project!",
+      "stars": 54
+    }
+  }
+]

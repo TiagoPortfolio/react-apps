@@ -1,13 +1,16 @@
 import React from 'react';
 import User from './User';
 import UsersLoader from '../components/UsersLoader';
+import PropTypes from 'prop-types';
 
-const UsersList = ({users, page, pageLimit, isLoading}) => {
+const LOADER_NUMBER = 3;
+
+const UsersList = ({users, isLoading}) => {
   let list = [];
 
   // Render content loader if loading
   if (isLoading) {
-    for (let i = 0; i < pageLimit; i++) {
+    for (let i = 0; i < LOADER_NUMBER; i++) {
       list[i] = (
         <li key={i}>
           <UsersLoader />
@@ -15,9 +18,6 @@ const UsersList = ({users, page, pageLimit, isLoading}) => {
       )
     }
   } else {
-    // Get users in a specific page
-    // const pagedUsers = users.slice((page - 1) * pageLimit, page * pageLimit);
-
     list = users.map(user => (
       <li key={user.id}>
         <User user={user} />
@@ -26,6 +26,11 @@ const UsersList = ({users, page, pageLimit, isLoading}) => {
   }
 
   return <ul>{list}</ul>;
+};
+
+UsersList.propTypes = {
+  users: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 export default UsersList;
